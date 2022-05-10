@@ -5,13 +5,13 @@
         'address/form.html.twig'
     ] %}
 
-    <div>
-        {{ form_start(form) }}
-        {{ form_widget(form.username) }}
-        {{ form_widget(form.firstname) }}
-        {{ form_widget(form.lastname) }}
-        {{ form_widget(form.email) }}
-        {{ form_widget(form.phone) }}
+    <div class="ui mini container">
+        {{ form_start(form, {'attr' : {'class' : 'ui form'}}) }}
+            {{ form_widget(form.username) }}
+            {{ form_widget(form.firstname) }}
+            {{ form_widget(form.lastname) }}
+            {{ form_widget(form.email) }}
+            {{ form_widget(form.phone) }}
         {{ form_end(form) }}
     </div>
 {% endblock %}

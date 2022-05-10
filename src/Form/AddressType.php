@@ -19,10 +19,30 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add("zipCode", TextType::class)
-            ->add("street", TextType::class)
-            ->add("city", TextType::class)
-            ->add("country", TextType::class)
+            ->add("zipCode", TextType::class, [
+                "attr" => [
+                    "placeholder" => "Code postal",
+                ],
+                "label" => false,
+            ])
+            ->add("street", TextType::class, [
+                "attr" => [
+                    "placeholder" => "Rue",
+                ],
+                "label" => false,
+            ])
+            ->add("city", TextType::class, [
+                "attr" => [
+                    "placeholder" => "Ville",
+                ],
+                "label" => false,
+            ])
+            ->add("country", TextType::class, [
+                "attr" => [
+                    "placeholder" => "Pays",
+                ],
+                "label" => false,
+            ])
             ;
     }
 
