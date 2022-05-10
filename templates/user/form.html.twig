@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% form_theme form with [
+        'address/form.html.twig'
+    ] %}
+
+    <div>
+        {{ form_start(form) }}
+        {{ form_widget(form.username) }}
+        {{ form_widget(form.firstname) }}
+        {{ form_widget(form.lastname) }}
+        {{ form_widget(form.email) }}
+        {{ form_widget(form.phone) }}
+        {{ form_widget(form.address) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

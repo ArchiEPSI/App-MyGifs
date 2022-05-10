@@ -21,6 +21,6 @@ class LoginController extends AbstractController
      */
     public function logout(Request $request): Response
     {
-        return $this->render("views/home.html.twig");
+        return $this->render("home.html.twig");
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-class Adress
+class Address
 {
     /**
      * @var int
