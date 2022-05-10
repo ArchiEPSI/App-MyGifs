@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\Address;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class UserType
+ * Class AdressType
  * @package App\Form
  */
-class UserType extends AbstractType
+class AddressType extends AbstractType
 {
-
     /**
      * @param FormBuilderInterface $builder
      * @param array                $options
@@ -25,35 +23,31 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add("username", TextType::class, [
+            ->add("zipCode", TextType::class, [
                 "attr" => [
-                    "placeholder" => "Pseudo",
+                    "placeholder" => "Code postal",
                 ],
-            ])
-            ->add("firstname", TextType::class, [
-                "attr" => [
-                    "placeholder" => "Prénom",
-                ],
-            ])
-            ->add("lastname", TextType::class, [
-                "attr" => [
-                    "placeholder" => "Nom",
-                ],
-            ])
-            ->add("phone", TextType::class, [
-                "attr" => [
-                    "placeholder" => "Numéro de téléphone",
-                ],
-            ])
-            ->add("email", EmailType::class, [
-                "attr" => [
-                    "placeholder" => "Adresse email",
-                ],
-            ])
-            ->add("address", AddressType::class, [
                 "label" => false,
             ])
-        ;
+            ->add("street", TextType::class, [
+                "attr" => [
+                    "placeholder" => "Rue",
+                ],
+                "label" => false,
+            ])
+            ->add("city", TextType::class, [
+                "attr" => [
+                    "placeholder" => "Ville",
+                ],
+                "label" => false,
+            ])
+            ->add("country", TextType::class, [
+                "attr" => [
+                    "placeholder" => "Pays",
+                ],
+                "label" => false,
+            ])
+            ;
     }
 
     /**
@@ -62,7 +56,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            "data_class" => User::class,
+            "data_class" => Address::class,
         ]);
     }
 }

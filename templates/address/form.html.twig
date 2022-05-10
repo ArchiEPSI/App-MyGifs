@@ -1,0 +1,25 @@
+{% block _user_address_row %}
+    {{ form_start(form, { 'attr': {'class' : 'ui form'}}) }}
+        <div class="field">
+            <label>Rue</label>
+            {{ form_widget(form.street) }}
+        </div>
+        <div class=" field">
+            <div class="three fields">
+                <div class="field">
+                    <label>Code postal</label>
+                    {{ form_widget(form.zipCode) }}
+                </div>
+                <div class="field">
+                    <label>Ville</label>
+                    {{ form_widget(form.city) }}
+                </div>
+                <div class="field">
+                    <label>Pays</label>
+                    {{ form_widget(form.country) }}
+                </div>
+            </div>
+        </div>
+    {{ form_end(form) }}
+{% endblock %}
+
