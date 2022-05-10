@@ -1,8 +1,9 @@
+{% block _user_address %}
+    {{ form_start(form) }}
+        {{ form_widget(form.street) }}
+        {{ form_widget(form.zipCode) }}
+        {{ form_widget(form.city) }}
+        {{ form_widget(form.country) }}
+    {{ form_end(form) }}
+{% endblock %}
 
-
-{{ form_start(form) }}
-    {{ form_widget(form.street) }}
-    {{ form_widget(form.zipCode) }}
-    {{ form_widget(form.city) }}
-    {{ form_widget(form.country) }}
-{{ form_end(form) }}
