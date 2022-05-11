@@ -46,7 +46,7 @@ class Gif
     /**
      * @var string
      */
-    private string $etat;
+    private string $state;
 
     /**
      * @var ArrayCollection
@@ -148,17 +148,17 @@ class Gif
     /**
      * @return string
      */
-    public function getEtat(): string
+    public function getState(): string
     {
-        return $this->etat;
+        return $this->state;
     }
 
     /**
-     * @param string $etat
+     * @param string $state
      */
-    public function setEtat(string $etat): void
+    public function setState(string $state): void
     {
-        $this->etat = $etat;
+        $this->state = $state;
     }
 
     /**
