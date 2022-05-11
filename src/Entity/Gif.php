@@ -41,7 +41,7 @@ class Gif
     /**
      * @var \DateTime
      */
-    private \DateTime $creationDate;
+    private \DateTime $createdAt;
 
     /**
      * @var string
@@ -63,6 +63,13 @@ class Gif
      */
     private $visible;
 
+    /**
+     * Gif constructor.
+     */
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime;
+    }
 
     /**
      * @return int
@@ -228,17 +235,17 @@ class Gif
     /**
      * @return \DateTime
      */
-    public function getCreationDate(): \DateTime
+    public function getCreatedAt(): \DateTime
     {
-        return $this->creationDate;
+        return $this->createdAt;
     }
 
     /**
-     * @param \DateTime $creationDate
+     * @param \DateTime $createdAt
      */
-    public function setCreationDate(\DateTime $creationDate): void
+    public function setCreatedAt(\DateTime $createdAt): void
     {
-        $this->creationDate = $creationDate;
+        $this->createdAt = $createdAt;
     }
 
     /**
