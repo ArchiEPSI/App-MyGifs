@@ -4,9 +4,10 @@
 namespace App\Form;
 
 use App\Entity\Gif;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -46,6 +47,19 @@ class GifType extends AbstractType
                 "label" => false,
                 "attr" => [
                     "placeholder" => "Etat",
+                ],
+            ])
+            ->add("categories", ChoiceType::class, [
+                "label" => false,
+                'choices' => [
+                    'Apple' => 1,
+                    'Banana' => 2,
+                    'Durian' => 3,
+                ],
+                'choice_attr' => [
+                    'Apple' => ['data-color' => 'Red'],
+                    'Banana' => ['data-color' => 'Yellow'],
+                    'Durian' => ['data-color' => 'Green'],
                 ],
             ])
             ;

@@ -13,12 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class UserController
- * @package App\Controller
+ * @Route ("/user")
  */
 class UserController extends AbstractController
 {
     /**
-     * @Route ("/user/add")
+     * @Route ("/add")
      *
      * @param Request $request
      *
@@ -44,7 +44,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route ("/user/edit/{id}",
+     * @Route ("/edit/{id}",
      *     requirements={"id": "\d+"})
      *
      * @param Request $request

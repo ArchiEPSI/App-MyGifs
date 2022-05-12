@@ -9,14 +9,17 @@ use App\Form\GifType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class GifController
- * @package App\Controller
+ * @Route ("/gif")
  */
 class GifController extends AbstractController
 {
     /**
+     * @Route("/add")
+     *
      * @param Request $request
      *
      * @return Response
