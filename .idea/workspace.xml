@@ -7,7 +7,15 @@
   <component name="ChangeListManager">
     <list default="true" id="dad9ec00-8650-47d3-bc72-9a09b5968d05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Gif.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Gif.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/user/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/user/form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,21 +205,25 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../api_gifs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/styles/fonts" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\DEV\project-test\templates" />
-      <recent name="C:\DEV\project-test\src\Entity" />
-      <recent name="C:\DEV\project-test\templates\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\DEV\project-test\assets\styles\fonts" />
+      <recent name="C:\DEV\project-test\assets\images" />
       <recent name="C:\DEV\project-test" />
       <recent name="C:\DEV\project-test\src" />
       <recent name="C:\DEV\project-test\src\Entity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\DEV\project-test\public" />
+      <recent name="C:\DEV\project-test\templates" />
+      <recent name="C:\DEV\project-test\src\Entity" />
+      <recent name="C:\DEV\project-test\templates\views" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -225,7 +237,10 @@
       <workItem from="1652034976380" duration="8130000" />
       <workItem from="1652076369414" duration="41000" />
       <workItem from="1652080074454" duration="7832000" />
-      <workItem from="1652248731883" duration="4641000" />
+      <workItem from="1652248731883" duration="6799000" />
+      <workItem from="1652293897297" duration="600000" />
+      <workItem from="1652339110805" duration="2221000" />
+      <workItem from="1652382232950" duration="5212000" />
     </task>
     <servers />
   </component>
@@ -245,11 +260,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="711" y="318" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1652249531765">
+    <state x="711" y="318" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1652383728657">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="711" y="318" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1032@0.0.1920.1032" timestamp="1652249531765" />
-    <state x="711" y="318" key="#com.intellij.fileTypes.FileTypeChooser/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652036387251" />
+    <state x="711" y="318" key="#com.intellij.fileTypes.FileTypeChooser/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652383728657" />
     <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1652188578323">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
