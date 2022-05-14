@@ -5,7 +5,12 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
+/**
+ * Class Gif
+ * @package App\Entity
+ */
 class Gif
 {
     /**
@@ -49,9 +54,9 @@ class Gif
     private string $state;
 
     /**
-     * @var ArrayCollection
+     * @var Collection
      */
-    private ArrayCollection $categories;
+    private Collection $categories;
 
     /**
      * @var string
@@ -169,19 +174,33 @@ class Gif
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getCategories(): ArrayCollection
+    public function getCategories(): Collection
     {
         return $this->categories;
     }
 
     /**
-     * @param ArrayCollection $categories
+     * @param Collection $categories
      */
-    public function setCategories(ArrayCollection $categories): void
+    public function setCategories(Collection $categories): void
     {
         $this->categories = $categories;
+    }
+
+    /**
+     * @param Category $category
+     *
+     * @return Gif
+     */
+    public function removeCategory(Category $category): Gif
+    {
+        if ($category instanceof Category) {
+            $this->categories->remove($category);
+        }
+
+        return $this;
     }
 
     /**
@@ -190,14 +209,6 @@ class Gif
     public function addCategory(Category $category): void
     {
         $this->categories->add($category);
-    }
-
-    /**
-     * @param Category $category
-     */
-    public function  removeCategory(Category $category): void{
-
-        $this->categories->remove($category);
     }
 
     /**

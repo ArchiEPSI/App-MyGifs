@@ -11,3 +11,7 @@ services:
       - .:/var/www/
     ports:
       - 8000:80
+networks:
+  default:
+    external:
+      name: api_gifs_gateway
