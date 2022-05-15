@@ -18,11 +18,10 @@ class User implements UserInterface
      * @var int
      */
     private int $id;
-
     /**
      * @var string
      */
-    private string $username;
+    private string $firstname;
 
     /**
      * @var string
@@ -32,7 +31,7 @@ class User implements UserInterface
     /**
      * @var string
      */
-    private string $firstname;
+    private string $email;
 
     /**
      * @var string
@@ -40,14 +39,14 @@ class User implements UserInterface
     private string $phone;
 
     /**
+     * @var string
+     */
+    private string $username;
+
+    /**
      * @var Address
      */
     private Address $address;
-
-    /**
-     * @var string
-     */
-    private string $email;
 
     /**
      * @var Collection

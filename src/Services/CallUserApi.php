@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Entity\User;
+use Doctrine\DBAL\Exception\DatabaseDoesNotExist;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -68,10 +69,27 @@ class CallUserApi
             [
                 'headers' => [
                     'Content-Type' => 'application/json; charset=utf-8',
-                    'Accept' => 'application/json'
                 ],
                 "body" => $content,
                 ]
         );
+    }
+
+    /**
+     * @param User $user
+     */
+    public function addUser(User $user)
+    {
+        // sérialisation du l'utilisateur
+        $content = $this->serializer->serialize($user, "json");
+        $response = $this->client->request("POST", "http://172.23.0.5:80/api/users",
+            [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                ],
+                "body" => $content,
+            ]
+        );
+        dd($response->getContent());
     }
 }

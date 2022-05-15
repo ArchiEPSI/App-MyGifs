@@ -15,6 +15,9 @@
             </div>
 
             {{ form_start(form, {'attr' : {'class' : 'ui form'}}) }}
+            {% if errors is defined %}
+                {{ form_errors(form) }}
+            {% endif %}
                 <div class=" field">
                     <div class="three fields">
                         <div class="field">
@@ -44,7 +47,6 @@
                     </div>
                 </div>
                 {{ form_row(form.address) }}
-
             {{ form_end(form) }}
         </div>
     </div>
