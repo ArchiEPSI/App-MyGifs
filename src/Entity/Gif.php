@@ -54,9 +54,9 @@ class Gif
     private string $state;
 
     /**
-     * @var Collection
+     * @var category
      */
-    private Collection $categories;
+    private Category $category;
 
     /**
      * @var string
@@ -83,6 +83,23 @@ class Gif
     {
         return $this->id;
     }
+
+    /**
+     * @return category
+     */
+    public function getCategory(): category
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param category $category
+     */
+    public function setCategory(category $category): void
+    {
+        $this->category = $category;
+    }
+
 
     /**
      * @param int $id
@@ -173,43 +190,6 @@ class Gif
         $this->state = $state;
     }
 
-    /**
-     * @return Collection
-     */
-    public function getCategories(): Collection
-    {
-        return $this->categories;
-    }
-
-    /**
-     * @param Collection $categories
-     */
-    public function setCategories(Collection $categories): void
-    {
-        $this->categories = $categories;
-    }
-
-    /**
-     * @param Category $category
-     *
-     * @return Gif
-     */
-    public function removeCategory(Category $category): Gif
-    {
-        if ($category instanceof Category) {
-            $this->categories->remove($category);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param Category $category
-     */
-    public function addCategory(Category $category): void
-    {
-        $this->categories->add($category);
-    }
 
     /**
      * @return string

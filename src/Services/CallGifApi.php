@@ -34,7 +34,7 @@ class CallGifApi
         $encoders = array(new JsonEncoder());
         $normalizer = new ObjectNormalizer(null, null, null, new ReflectionExtractor());
 
-        $this->serializer = new Serializer([new DateTimeNormalizer(), $normalizer, new ArrayDenormalizer()], $encoders);
+        $this->serializer = new Serializer([new DateTimeNormalizer(), $normalizer], $encoders);
     }
 
     /**
@@ -46,14 +46,17 @@ class CallGifApi
 
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $response = $this->client->request("GET", "http://172.23.0.5:80/api/gifs/")->getContent();
-            $items = json_decode($response);
-            dd($response, $items);
-            foreach ($items as $item) {
-                // récupération du gif
-                $gif = $this->serializer->deserialize($item, "App\Entity\gif", "json");
+            $response = $this->client->request("GET", "http://172.23.0.4:80/api/gifs/")->getContent();
+            $response = json_decode($response, true);
+            dd($response);
+            foreach ($response["hydra:member"] as $item) {
+                $item = json_encode($item);
+                $gif = $this->serializer->deserialize($item, "App\Entity\Gif", "json");
                 $gifs->add($gif);
             }
+            // récupération du gif
+            //$gifs->add($gif);
+            dd($gifs);
 
         } catch (ClientExceptionInterface $e) {
             throw new \Exception("Impossible de récupérer la liste de gifs");
@@ -71,7 +74,7 @@ class CallGifApi
     {
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $response = $this->client->request("GET", "http://172.23.0.5:80/api/gifs/".$id)->getContent();
+            $response = $this->client->request("GET", "http://172.23.0.4:80/api/gifs/".$id)->getContent();
             //$response = json_decode($response);
             // récupération de l'adresse
             $gif = $this->serializer->deserialize($response, "App\Entity\gif", "json");
@@ -90,7 +93,7 @@ class CallGifApi
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($gif, "json");
-        $response = $this->client->request("PUT", "http://172.23.0.5:80/api/fifs/".$gif->getId(),
+        $response = $this->client->request("PUT", "http://172.23.0.4:80/api/fifs/".$gif->getId(),
             [
                 'headers' => [
                     'Content-Type' => 'application/json; charset=utf-8',
@@ -107,7 +110,7 @@ class CallGifApi
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($gif, "json");
-        $response = $this->client->request("POST", "http://172.23.0.5:80/api/Gifs",
+        $response = $this->client->request("POST", "http://172.23.0.4:80/api/Gifs",
             [
                 'headers' => [
                     'Content-Type' => 'application/json',

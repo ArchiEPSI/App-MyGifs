@@ -8,7 +8,7 @@
     <list default="true" id="dad9ec00-8650-47d3-bc72-9a09b5968d05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CallCategoryApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallCategoryApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Gif.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Gif.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/CallGifApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallGifApi.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +202,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../api_gifs" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -245,7 +245,7 @@
       <workItem from="1652480330228" duration="8236000" />
       <workItem from="1652538626014" duration="10677000" />
       <workItem from="1652624554778" duration="16586000" />
-      <workItem from="1652735220681" duration="1551000" />
+      <workItem from="1652735220681" duration="5549000" />
     </task>
     <servers />
   </component>
@@ -270,10 +270,10 @@
     </state>
     <state x="711" y="318" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1032@0.0.1920.1032" timestamp="1652249531765" />
     <state x="711" y="318" key="#com.intellij.fileTypes.FileTypeChooser/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652383728657" />
-    <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1652188578323">
+    <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1652740257955">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652188578323" />
+    <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652740257955" />
     <state x="617" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1652189748436">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
@@ -282,11 +282,11 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="690" y="271" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652735941661" />
-    <state x="740" y="271" key="FileChooserDialogImpl" timestamp="1652440852201">
+    <state x="740" y="271" key="FileChooserDialogImpl" timestamp="1652737326731">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="740" y="271" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1652440852201" />
-    <state x="740" y="271" key="FileChooserDialogImpl/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652388220861" />
+    <state x="740" y="271" key="FileChooserDialogImpl/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652737326731" />
     <state x="769" y="239" key="NewPhpClassDialog" timestamp="1652735728740">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>

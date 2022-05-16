@@ -28,6 +28,7 @@ class IndexController extends AbstractController
     {
         // récupération des gifs
         $gifs = $api->getGifs();
+        dd($gifs);
 
         return $this->render("home.html.twig");
     }
