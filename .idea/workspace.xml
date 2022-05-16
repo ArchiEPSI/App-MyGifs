@@ -7,14 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dad9ec00-8650-47d3-bc72-9a09b5968d05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/CallUserApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallUserApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/address/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/address/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/form.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +242,7 @@
       <workItem from="1652471347650" duration="1362000" />
       <workItem from="1652480330228" duration="8236000" />
       <workItem from="1652538626014" duration="10677000" />
-      <workItem from="1652624554778" duration="15431000" />
+      <workItem from="1652624554778" duration="16586000" />
     </task>
     <servers />
   </component>

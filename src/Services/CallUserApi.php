@@ -90,6 +90,5 @@ class CallUserApi
                 "body" => $content,
             ]
         );
-        dd($response->getContent());
     }
 }
