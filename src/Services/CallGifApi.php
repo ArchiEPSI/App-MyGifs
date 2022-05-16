@@ -48,6 +48,7 @@ class CallGifApi
         try {
             $response = $this->client->request("GET", "http://172.23.0.5:80/api/gifs/")->getContent();
             $items = json_decode($response);
+            dd($response, $items);
             foreach ($items as $item) {
                 // récupération du gif
                 $gif = $this->serializer->deserialize($item, "App\Entity\gif", "json");

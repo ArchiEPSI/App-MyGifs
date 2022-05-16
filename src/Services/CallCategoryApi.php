@@ -66,9 +66,9 @@ class CallCategoryApi
         $categories = new ArrayCollection();
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $items = $this->client->request("GET", "http://172.23.0.5:80/api/categories")->getContent();
-            //$response = json_decode($response);
-            foreach ($items as $item) {
+            $response = $this->client->request("GET", "http://172.23.0.5:80/api/categories")->getContent();
+            $gifsJson = json_encode($response);
+            foreach ($gifsJson as $item) {
                 $category = $this->serializer->deserialize($item, "App\Entity\Category", "json");
                 $categories->add($category);
             }
