@@ -48,7 +48,7 @@
                 </div>
                 {{ form_row(form.address) }}
             {{ form_end(form) }}
-            <button class="ui fluid button ">Peut-être plus tard</button>
+            <a href="{{ path('app_login_logout') }}" class="ui fluid button ">Peut-être plus tard</a>
         </div>
     </div>
 {% endblock %}
