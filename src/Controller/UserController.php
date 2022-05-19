@@ -28,16 +28,18 @@ class UserController extends AbstractController
      */
     public function addUser(Request $request, CallUserApi $api): Response
     {
-
         // création d'une nouvelle instance de User
         $user = new User();
+        $userSession = $this->getUser();
+
+        $user->setId($userSession->getUserIdentifier());
+
         // récupération du formulaire
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // TODO enregistrement de l'utilisateur via l'api + login
             $api->addUser($user);
             return $this->redirectToRoute("app_index_index");
         }
@@ -53,13 +55,13 @@ class UserController extends AbstractController
      *
      * @param Request     $request
      * @param CallUserApi $api
-     * @param int         $id
+     * @param string         $id
      *
      * @return Response
      *
      * @throws \Exception
      */
-    public function editUser(Request $request, CallUserApi $api, int $id): Response
+    public function editUser(Request $request, CallUserApi $api, string $id): Response
     {
         $user = $api->getUser($id);
         // TODO récupération de l'utilisateur via l'api

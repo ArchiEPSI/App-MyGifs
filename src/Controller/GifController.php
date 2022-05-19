@@ -26,7 +26,7 @@ class GifController extends AbstractController
      */
     public function addGif(Request $request): Response
     {
-        if ($this->isGranted('S_AUTHENTICATED_FULLY')) {
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
             $gif = new Gif();
             // récupération du formulaire
             $form = $this->createForm(GifType::class, $gif);

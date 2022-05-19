@@ -40,19 +40,18 @@ class CallUserApi
     /**
      * @param string $id
      *
-     * @return User
+     * @return User|null
      */
-    public function getUser(string $id): User
+    public function getUser(string $id): ?User
     {
         // envoie de la requête pour récupérer l'utilisateur
         try {
-                $response = $this->client->request("GET", "http://172.23.0.4:80/api/users/".$id)->getContent();
-                //$response = json_decode($response);
-                // récupération de l'adresse
+            $response = $this->client->request("GET", "http://172.23.0.4:80/api/users/".$id)->getContent();
+            //$response = json_decode($response);
+            // récupération de l'adresse
             $user = $this->serializer->deserialize($response, "App\Entity\User", "json");
-
         } catch (ClientExceptionInterface $e) {
-            throw new \Exception("Impossible de récupérer cet utilisateur");
+            return null;
         }
 
         return $user;

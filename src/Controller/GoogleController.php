@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 
+use App\Entity\User;
 use App\Services\CallUserApi;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,13 +33,17 @@ class GoogleController extends AbstractController
     /**
      * @Route("/connect/google/check", name="connect_google_check")
      *
-     * @param Request $request
+     * @param CallUserApi $api
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function connectCheckAction(Request $request, CallUserApi $api)
-{
-    dd($request);
+    public function connectCheckAction(CallUserApi $api)
+    {
+        $user = $api->getUser($this->getUser()->getUserIdentifier());
+        if (! $user instanceof User) {
+            return $this->redirectToRoute("app_user_adduser");
+        }
 
-        $user = $api->getUser();
-       $this->render("home.html.twig");
+        return $this->redirectToRoute("app_index_index");
     }
 }

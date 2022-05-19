@@ -20,34 +20,34 @@ class User implements UserInterface
     private string $id;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $firstname;
+    private ?string $firstname;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $lastname;
+    private ?string $lastname;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $email;
+    private ?string $email;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $phone;
+    private ?string $phone;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $username;
+    private ?string $username;
 
     /**
-     * @var Address
+     * @var Address|null
      */
-    private Address $address;
+    private ?Address $address;
 
     /**
      * @var Collection
@@ -95,84 +95,101 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUsername(): string
-    {
-        return $this->username;
-    }
-
-    /**
-     * @param string $username
-     */
-    public function setUsername(string $username): void
-    {
-        $this->username = $username;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastname(): string
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * @param string $lastname
-     */
-    public function setLastname(string $lastname): void
-    {
-        $this->lastname = $lastname;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFirstname(): string
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
 
     /**
-     * @param string $firstname
+     * @param string|null $firstname
      */
-    public function setFirstname(string $firstname): void
+    public function setFirstname(?string $firstname): void
     {
         $this->firstname = $firstname;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPhone(): string
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param string|null $lastname
+     */
+    public function setLastname(?string $lastname): void
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string|null $email
+     */
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
     /**
-     * @param string $phone
+     * @param string|null $phone
      */
-    public function setPhone(string $phone): void
+    public function setPhone(?string $phone): void
     {
         $this->phone = $phone;
     }
 
     /**
-     * @return Address
+     * @return string|null
      */
-    public function getAddress(): Address
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string|null $username
+     */
+    public function setUsername(?string $username): void
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return Address|null
+     */
+    public function getAddress(): ?Address
     {
         return $this->address;
     }
 
     /**
-     * @param Address $address
+     * @param Address|null $address
      */
-    public function setAddress(Address $address): void
+    public function setAddress(?Address $address): void
     {
         $this->address = $address;
     }
+
 
     /**
      * @return Collection
@@ -260,18 +277,6 @@ class User implements UserInterface
         return $this;
     }
 
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
 
     /**
      * A visual identifier that represents this user.
