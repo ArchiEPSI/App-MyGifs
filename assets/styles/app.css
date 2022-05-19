@@ -1,10 +1,18 @@
 body {
-    background-color: #555C68;
+    background-color: #FFFFFF;
     font-family: Poppins, sans-serif !important;
+}
+
+body.modal {
+    background-color: #555C68;
 }
 
 .logo img{
     width: 100px;
+}
+.logo-menu img {
+    width: 50px;
+    color: rgb(4, 17, 29);
 }
 
 div.content{
@@ -13,4 +21,32 @@ div.content{
     align-items: center;
     height: 100%;
     width: 100%;
+}
+
+div.menu {
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+    width: 100%;
+}
+
+div.menu-content {
+    padding: 10px 20px 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.menu a {
+    color: #555C68 !important;
+}
+
+div.part-left {
+    display: flex;
+    align-items: center;
+}
+
+div.part-left h1 { margin-left: 20px; }
+
+div.part-right {
+    display: flex;
+    align-items: center
 }

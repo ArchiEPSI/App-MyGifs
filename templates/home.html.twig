@@ -1,6 +1,11 @@
 {%  extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>MyGifs</h1>
-    <a href="{{ path('app_login_logout') }}">Se déconnecter</a>
+{% block menu %}
+    {% include 'menu.html.twig' %}
 {% endblock %}
+
+{% block body %}
+    <div class="filter"></div>
+    {% include 'gif/list.html.twig' with { 'gifs' : gifs } %}
+{% endblock %}
+

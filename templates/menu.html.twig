@@ -1,0 +1,18 @@
+<div class="menu">
+    <div class="menu-content">
+        <div class="part-left">
+            <div class="logo-menu"><img src="{{ asset('images/logo.png') }}"></div>
+            <a href="{{ path("app_index_index") }}"><h1>MyGifs</h1></a>
+        </div>
+        <div class="part-right">
+            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                <a href="#">Mes gifs</a>
+                <a href="#"><i class="shopping basket icon"></i>Mon panier</a>
+                <a href="#" title="Mon compte"><i class="user circle outline big icon"></i></a>
+                <a href="{{ path('app_login_logout') }}" title="Me déconnecter"><i class="sign out alternate big icon"></i>Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('connect_google') }}" title="Me connecter"><i class="user circle outline big icon"></i>Me connecter</a>
+            {% endif %}
+        </div>
+    </div>
+</div>

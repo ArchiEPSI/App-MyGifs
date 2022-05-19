@@ -37,5 +37,4 @@ class GoogleController extends AbstractController
     {
        $this->render("views/home.html.twig");
     }
-
 }

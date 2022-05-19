@@ -53,9 +53,6 @@ class CallGifApi
                 $gif = $this->serializer->deserialize($item, "App\Entity\Gif", "json");
                 $gifs->add($gif);
             }
-            // récupération du gif
-            //$gifs->add($gif);
-            dd($gifs);
 
         } catch (ClientExceptionInterface $e) {
             throw new \Exception("Impossible de récupérer la liste de gifs");
