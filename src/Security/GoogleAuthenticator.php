@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Security;
 
+use App\Entity\User;
+use App\Services\CallUserApi;
 use Doctrine\ORM\EntityManagerInterface;
 use League\OAuth2\Client\Provider\GoogleUser;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
@@ -27,6 +29,7 @@ class GoogleAuthenticator extends OAuth2Authenticator
     private ClientRegistry $clientRegistry;
     private EntityManagerInterface $entityManager;
     private RouterInterface $router;
+    private CallUserApi $api;
 
 
     /**
@@ -35,11 +38,12 @@ class GoogleAuthenticator extends OAuth2Authenticator
      * @param EntityManagerInterface $entityManager
      * @param RouterInterface $router
      */
-    public function __construct(ClientRegistry $clientRegistry, EntityManagerInterface $entityManager, RouterInterface $router)
+    public function __construct(ClientRegistry $clientRegistry, EntityManagerInterface $entityManager, RouterInterface $router, CallUserApi $api)
     {
         $this->clientRegistry = $clientRegistry;
         $this->entityManager = $entityManager;
         $this->router = $router;
+        $this->api = $api;
     }
 
     /**
@@ -66,27 +70,36 @@ class GoogleAuthenticator extends OAuth2Authenticator
             new UserBadge($accessToken->getToken(), function () use ($accessToken, $client) {
                 /** @var GoogleUser $googleUser */
                 $googleUser = $client->fetchUserFromToken($accessToken);
-
+                $userArray = $googleUser->toArray();
+                $googleId = $userArray["sub"];
                 $email = $googleUser->getEmail();
+                $lastname = $googleUser->getLastName();
+                $firstname = $googleUser->getFirstName();
 
                 // have they logged in with Google before? Easy!
-                //$existingUser = $this->entityManager->getRepository(User::class)->findOneBy(['googleId' => $googleUser->getId()]);
+                $existingUser = $this->api->getUser($googleId);
 
                 //User doesnt exist, we create it !
-               // if (!$existingUser) {
+               if (!$existingUser instanceof User) {
                     $existingUser = new User();
                     $existingUser->setEmail($email);
-                    //$existingUser->setGoogleId($googleUser->getId());
-                    //$existingUser->setHostedDomain($googleUser->getHostedDomain());
-                    //$this->entityManager->persist($existingUser);
-                //}
-                //$this->entityManager->flush();
+                    $existingUser->setId($googleId);
+                    $existingUser->setFirstname($firstname);
+                    $existingUser->setLastname($lastname);
+                }
 
                 return $existingUser;
             })
         );
     }
 
+    /**
+     * @param Request        $request
+     * @param TokenInterface $token
+     * @param string         $firewallName
+     *
+     * @return Response|null
+     */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
 
@@ -99,6 +112,12 @@ class GoogleAuthenticator extends OAuth2Authenticator
         //return null;
     }
 
+    /**
+     * @param Request                 $request
+     * @param AuthenticationException $exception
+     *
+     * @return Response|null
+     */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
         $message = strtr($exception->getMessageKey(), $exception->getMessageData());

@@ -38,11 +38,11 @@ class CallUserApi
     }
 
     /**
-     * @param int $id
+     * @param string $id
      *
      * @return User
      */
-    public function getUser(int $id): User
+    public function getUser(string $id): User
     {
         // envoie de la requête pour récupérer l'utilisateur
         try {

@@ -26,16 +26,22 @@ class GifController extends AbstractController
      */
     public function addGif(Request $request): Response
     {
-        // récupération du formulaire
-        $form = $this->createForm(GifType::class, new Gif());
-        $form->handleRequest($request);
+        if ($this->isGranted('S_AUTHENTICATED_FULLY')) {
+            $gif = new Gif();
+            // récupération du formulaire
+            $form = $this->createForm(GifType::class, $gif);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // enregistrement du Gif
+            if ($form->isSubmitted() && $form->isValid()) {
+                // enregistrement du Gif
+                $gif->setOwner($this->getUser());
 
-        }
-        return $this->render("gif/form.html.twig", [
-            "form" => $form->createView(),
-        ]);
+            }
+            return $this->render("gif/form.html.twig", [
+                "form" => $form->createView(),
+            ]);
+        };
+
+        return $this->redirectToRoute("app_login_login");
     }
 }

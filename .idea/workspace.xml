@@ -7,13 +7,16 @@
   <component name="ChangeListManager">
     <list default="true" id="dad9ec00-8650-47d3-bc72-9a09b5968d05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/apache.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/apache.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GifController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GifController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GoogleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GoogleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CallCategoryApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallCategoryApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CallGifApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallGifApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/GoogleAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/GoogleAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/UserProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/UserProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/CallUserApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallUserApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Authentication/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentication/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gif/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gif/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -252,7 +255,8 @@
       <workItem from="1652624554778" duration="16586000" />
       <workItem from="1652735220681" duration="7498000" />
       <workItem from="1652985524165" duration="2466000" />
-      <workItem from="1652989147888" duration="4841000" />
+      <workItem from="1652989147888" duration="7107000" />
+      <workItem from="1652997060391" duration="1887000" />
     </task>
     <servers />
   </component>
@@ -277,10 +281,10 @@
     </state>
     <state x="711" y="318" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1032@0.0.1920.1032" timestamp="1652249531765" />
     <state x="711" y="318" key="#com.intellij.fileTypes.FileTypeChooser/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652383728657" />
-    <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1652988951072">
+    <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1652995181237">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652988951072" />
+    <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652995181237" />
     <state x="617" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1652189748436">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
@@ -289,11 +293,11 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="690" y="271" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652735941661" />
-    <state x="740" y="271" key="FileChooserDialogImpl" timestamp="1652987047036">
+    <state x="740" y="271" key="FileChooserDialogImpl" timestamp="1652996961589">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="740" y="271" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1652440852201" />
-    <state x="740" y="271" key="FileChooserDialogImpl/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652987047036" />
+    <state x="740" y="271" key="FileChooserDialogImpl/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652996961589" />
     <state x="769" y="239" key="NewPhpClassDialog" timestamp="1652735728740">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
@@ -311,5 +315,13 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652741907135" />
+    <state x="616" y="238" key="run.anything.popup" timestamp="1652995147514">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="616" y="238" key="run.anything.popup/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652995147514" />
+    <state x="623" y="223" key="search.everywhere.popup" timestamp="1652997496614">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="623" y="223" key="search.everywhere.popup/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652997496614" />
   </component>
 </project>

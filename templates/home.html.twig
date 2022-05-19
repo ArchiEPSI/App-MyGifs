@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block body %}
-    <div class="filter"></div>
+    <div class="filter">
+        <a href="{{ path('app_gif_addgif') }}">Vendre un gif</a>
+    </div>
     {% include 'gif/list.html.twig' with { 'gifs' : gifs } %}
 {% endblock %}
 

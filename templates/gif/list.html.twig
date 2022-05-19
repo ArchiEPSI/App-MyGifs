@@ -1,5 +1,17 @@
 <div class="list-gifs">
     {% for gif in gifs %}
-        
+        <div class="card">
+            <div class="gif">
+                <img src="{{ gif.url }}">
+            </div>
+            <div class="informations">
+                {{ gif.name }}
+                {{ gif.price }}
+                {% for category in gif.categories %}
+                    {{ category.label }}
+                {% endfor %}
+                {{ gif.owner.username }}
+            </div>
+        </div>
     {% endfor %}
 </div>

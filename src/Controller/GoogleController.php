@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 
+use App\Services\CallUserApi;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,8 +34,11 @@ class GoogleController extends AbstractController
      *
      * @param Request $request
      */
-    public function connectCheckAction(Request $request)
-    {
-       $this->render("views/home.html.twig");
+    public function connectCheckAction(Request $request, CallUserApi $api)
+{
+    dd($request);
+
+        $user = $api->getUser();
+       $this->render("home.html.twig");
     }
 }

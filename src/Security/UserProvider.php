@@ -2,7 +2,8 @@
 
 namespace App\Security;
 
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
+use App\Entity\User;
+use App\Services\CallUserApi;
 use Symfony\Component\Security\Core\Exception\UserNotFoundException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
@@ -11,6 +12,11 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
 {
+    private CallUserApi $api;
+
+    public function __construct(CallUserApi $api){
+        $this->api = $api;
+    }
     /**
      * Symfony calls this method if you use features like switch_user
      * or remember_me.
@@ -22,6 +28,11 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
      */
     public function loadUserByIdentifier($identifier): UserInterface
     {
+        $user = $this->api->getUser($identifier);
+
+        if ($user instanceof User) {
+            return $user;
+        }
         // Load a User object from your data source or throw UserNotFoundException.
         // The $identifier argument may not actually be a username:
         // it is whatever value is being returned by the getUserIdentifier()
