@@ -1,6 +1,22 @@
+
 div.ui.mini.container {
-    width: 650px !important;
+    width: 750px !important;
     padding: 30px;
     background-color:  #F7F8F9;
     border-radius: 6px;
+}
+
+h2 {
+    font-family: Poppins, sans-serif;
+}
+div.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+button.ui.button {
+    margin-top: 40px;
 }

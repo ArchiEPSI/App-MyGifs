@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% form_theme form with [
+        'address/form.html.twig'
+    ] %}
+
+    <div class="content">
+        <div class="ui mini container">
+            <div class="logo">
+                <img src="{{ asset('images/logo.png') }}">
+                <h2>
+                    Ajouter un gif
+                </h2>
+            </div>
+            <div class="preview-gif">
+
+            </div>
+            {{ form_start(form, {'attr' : {'class' : 'ui form'}}) }}
+            <div class="field">
+                <label>Comment souhaitez-vous nommer ce gif?</label>
+                {{ form_widget(form.name) }}
+            </div>
+            <div class="field">
+                <label>Entrez une url</label>
+                {{ form_widget(form.url) }}
+            </div>
+            <div class="field">
+                <label>Prix</label>
+                {{ form_widget(form.price) }}
+            </div>
+            <div class=" field">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Affecter un état</label>
+                        {{ form_widget(form.state) }}
+                    </div>
+                    <div class="field">
+                        <label>Catégories</label>
+                        {{ form_widget(form.categories, {'attr': {'class': 'ui dropdown'}}) }}
+                    </div>
+                </div>
+            </div>
+            <button class="ui fluid green button" type="submit">Ajouter ce gif</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

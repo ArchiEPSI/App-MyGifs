@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Entity;
 
-
 use Doctrine\Common\Collections\ArrayCollection;
 
+/**
+ * Class Command
+ * @package App\Entity
+ */
 class Command
 {
     /**

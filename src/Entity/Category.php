@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+/**
+ * Class Category
+ * @package App\Entity
+ */
 class Category
 {
     /**

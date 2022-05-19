@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+/**
+ * Class Address
+ * @package App\Entity
+ */
 class Address
 {
     /**

@@ -5,7 +5,12 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
+/**
+ * Class Gif
+ * @package App\Entity
+ */
 class Gif
 {
     /**
@@ -31,7 +36,7 @@ class Gif
     /**
      * @var User
      */
-    private User $author;
+    private User $owner;
 
     /**
      * @var float
@@ -41,17 +46,17 @@ class Gif
     /**
      * @var \DateTime
      */
-    private \DateTime $creationDate;
+    private \DateTime $createdAt;
 
     /**
      * @var string
      */
-    private string $etat;
+    private string $state;
 
     /**
-     * @var ArrayCollection
+     * @var Collection
      */
-    private ArrayCollection $categories;
+    private Collection $categories;
 
     /**
      * @var string
@@ -63,6 +68,13 @@ class Gif
      */
     private $visible;
 
+    /**
+     * Gif constructor.
+     */
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime;
+    }
 
     /**
      * @return int
@@ -70,6 +82,46 @@ class Gif
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param Collection $categories
+     */
+    public function setCategories(Collection $categories): void
+    {
+        $this->categories = $categories;
+    }
+
+    /**
+     * @param Category $category
+     *
+     * @return Gif
+     */
+    public function addCategory(Category $category): Gif
+    {
+        $this->categories->add($category);
+
+        return $this;
+    }
+
+    /**
+     * @param Category $category
+     *
+     * @return $this
+     */
+    public function removeCategory(Category $category): Gif
+    {
+        $this->categories->remove($category);
+
+        return $this;
     }
 
     /**
@@ -131,67 +183,36 @@ class Gif
     /**
      * @return User
      */
-    public function getAuthor(): User
+    public function getOwner(): User
     {
-        return $this->author;
+        return $this->owner;
     }
 
     /**
-     * @param User $author
+     * @param User $owner
      */
-    public function setAuthor(User $author): void
+    public function setOwner(User $owner): void
     {
-        $this->author = $author;
+        $this->owner = $owner;
     }
 
 
     /**
      * @return string
      */
-    public function getEtat(): string
+    public function getState(): string
     {
-        return $this->etat;
+        return $this->state;
     }
 
     /**
-     * @param string $etat
+     * @param string $state
      */
-    public function setEtat(string $etat): void
+    public function setState(string $state): void
     {
-        $this->etat = $etat;
+        $this->state = $state;
     }
 
-    /**
-     * @return ArrayCollection
-     */
-    public function getCategories(): ArrayCollection
-    {
-        return $this->categories;
-    }
-
-    /**
-     * @param ArrayCollection $categories
-     */
-    public function setCategories(ArrayCollection $categories): void
-    {
-        $this->categories = $categories;
-    }
-
-    /**
-     * @param Category $category
-     */
-    public function addCategory(Category $category): void
-    {
-        $this->categories->add($category);
-    }
-
-    /**
-     * @param Category $category
-     */
-    public function  removeCategory(Category $category): void{
-
-        $this->categories->remove($category);
-    }
 
     /**
      * @return string
@@ -228,17 +249,17 @@ class Gif
     /**
      * @return \DateTime
      */
-    public function getCreationDate(): \DateTime
+    public function getCreatedAt(): \DateTime
     {
-        return $this->creationDate;
+        return $this->createdAt;
     }
 
     /**
-     * @param \DateTime $creationDate
+     * @param \DateTime $createdAt
      */
-    public function setCreationDate(\DateTime $creationDate): void
+    public function setCreatedAt(\DateTime $createdAt): void
     {
-        $this->creationDate = $creationDate;
+        $this->createdAt = $createdAt;
     }
 
     /**

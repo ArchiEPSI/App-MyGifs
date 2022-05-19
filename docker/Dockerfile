@@ -7,16 +7,12 @@ RUN chmod +x /usr/local/bin/install-php-extensions
 RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
    mv composer.phar /usr/local/bin/composer
 
-RUN apt update && apt install -yqq nodejs npm
-
 COPY . /var/www/
 
 COPY ./docker/apache.conf /etc/apache2/sites-available/000-default.conf
 
 RUN chown -R www-data:www-data /var/www/var
 RUN chmod 755 /var/www/var
-
-RUN composer install
 
 WORKDIR /var/www/
 

@@ -1,5 +1,4 @@
 {% block _user_address_row %}
-    {{ form_start(form, { 'attr': {'class' : 'ui form'}}) }}
         <div class="field">
             <label>Rue</label>
             {{ form_widget(form.street) }}
@@ -20,6 +19,6 @@
                 </div>
             </div>
         </div>
-    {{ form_end(form) }}
+        <button class="ui fluid green button" type="submit">M'enregistrer</button>
 {% endblock %}
 

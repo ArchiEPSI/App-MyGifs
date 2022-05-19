@@ -1,21 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * Class User
+ * @package App\Entity
+ */
 class User implements UserInterface
 {
     /**
      * @var int
      */
     private int $id;
-
     /**
      * @var string
      */
-    private string $username;
+    private string $firstname;
 
     /**
      * @var string
@@ -25,7 +31,7 @@ class User implements UserInterface
     /**
      * @var string
      */
-    private string $firstname;
+    private string $email;
 
     /**
      * @var string
@@ -33,22 +39,19 @@ class User implements UserInterface
     private string $phone;
 
     /**
+     * @var string
+     */
+    private string $username;
+
+    /**
      * @var Address
      */
     private Address $address;
 
     /**
-     * @var string
-     */
-    private string $email;
-
-
-    private Collection $commands;
-
-    /**
      * @var Collection
      */
-    private Collection $transactions;
+    private Collection $commands;
 
     /**
      * @var Collection
@@ -66,6 +69,12 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->firstname." ".$this->lastname;
+    }
+
+    public function __construct()
+    {
+        $this->commands = new ArrayCollection();
+        $this->gifs = new ArrayCollection();
     }
 
     /**
@@ -159,7 +168,7 @@ class User implements UserInterface
     /**
      * @param Address $address
      */
-    public function setAdress(Address $address): void
+    public function setAddress(Address $address): void
     {
         $this->address = $address;
     }
@@ -181,19 +190,30 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection
+     * @param Command $command
+     *
+     * @return $this
      */
-    public function getTransactions(): Collection
+    public function addCommand(Command $command): self
     {
-        return $this->transactions;
+        if ($command instanceof Command) {
+            $this->commands->add($command);
+        }
+        return $this;
     }
 
     /**
-     * @param Collection $transactions
+     * @param Command $command
+     *
+     * @return User
      */
-    public function setTransactions(Collection $transactions): void
+    public function removeCommand(Command $command): User
     {
-        $this->transactions = $transactions;
+        if ($command instanceof Command) {
+            $this->commands->remove($command);
+        }
+
+        return $this;
     }
 
     /**
@@ -211,6 +231,34 @@ class User implements UserInterface
     {
         $this->gifs = $gifs;
     }
+
+    /**
+     * @param Gif $gif
+     *
+     * @return $this
+     */
+    public function addGif(Gif $gif): self
+    {
+        if ($gif instanceof Gif) {
+            $this->gifs->add($gif);
+        }
+        return $this;
+    }
+
+    /**
+     * @param Gif $gif
+     *
+     * @return User
+     */
+    public function removeGif(Gif $gif): User
+    {
+        if ($gif instanceof Gif) {
+            $this->gifs->remove($gif);
+        }
+
+        return $this;
+    }
+
 
     public function getEmail(): ?string
     {
