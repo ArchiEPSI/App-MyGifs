@@ -36,7 +36,7 @@ class Gif
     /**
      * @var User
      */
-    private User $author;
+    private User $owner;
 
     /**
      * @var float
@@ -54,9 +54,9 @@ class Gif
     private string $state;
 
     /**
-     * @var category
+     * @var Collection
      */
-    private Category $category;
+    private Collection $categories;
 
     /**
      * @var string
@@ -85,21 +85,44 @@ class Gif
     }
 
     /**
-     * @return category
+     * @return Collection
      */
-    public function getCategory(): category
+    public function getCategories(): Collection
     {
-        return $this->category;
+        return $this->categories;
     }
 
     /**
-     * @param category $category
+     * @param Collection $categories
      */
-    public function setCategory(category $category): void
+    public function setCategories(Collection $categories): void
     {
-        $this->category = $category;
+        $this->categories = $categories;
     }
 
+    /**
+     * @param Category $category
+     *
+     * @return Gif
+     */
+    public function addCategory(Category $category): Gif
+    {
+        $this->categories->add($category);
+
+        return $this;
+    }
+
+    /**
+     * @param Category $category
+     *
+     * @return $this
+     */
+    public function removeCategory(Category $category): Gif
+    {
+        $this->categories->remove($category);
+
+        return $this;
+    }
 
     /**
      * @param int $id
@@ -160,17 +183,17 @@ class Gif
     /**
      * @return User
      */
-    public function getAuthor(): User
+    public function getOwner(): User
     {
-        return $this->author;
+        return $this->owner;
     }
 
     /**
-     * @param User $author
+     * @param User $owner
      */
-    public function setAuthor(User $author): void
+    public function setOwner(User $owner): void
     {
-        $this->author = $author;
+        $this->owner = $owner;
     }
 
 

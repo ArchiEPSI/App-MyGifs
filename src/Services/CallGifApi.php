@@ -34,7 +34,7 @@ class CallGifApi
         $encoders = array(new JsonEncoder());
         $normalizer = new ObjectNormalizer(null, null, null, new ReflectionExtractor());
 
-        $this->serializer = new Serializer([new DateTimeNormalizer(), $normalizer], $encoders);
+        $this->serializer = new Serializer([new DateTimeNormalizer(), $normalizer, new ArrayDenormalizer()], $encoders);
     }
 
     /**
@@ -48,7 +48,6 @@ class CallGifApi
         try {
             $response = $this->client->request("GET", "http://172.23.0.4:80/api/gifs/")->getContent();
             $response = json_decode($response, true);
-            dd($response);
             foreach ($response["hydra:member"] as $item) {
                 $item = json_encode($item);
                 $gif = $this->serializer->deserialize($item, "App\Entity\Gif", "json");
