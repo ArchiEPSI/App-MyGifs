@@ -19,20 +19,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route ("/add")
+     * @Route ("/add/{id}", requirements={"id" : "\w+"})
      *
      * @param Request     $request
      * @param CallUserAPI $api
      *
      * @return Response
      */
-    public function addUser(Request $request, CallUserApi $api): Response
+    public function addUser(Request $request, CallUserApi $api, string $id): Response
     {
         // création d'une nouvelle instance de User
         $user = new User();
         $userSession = $this->getUser();
-
-        $user->setId($userSession->getUserIdentifier());
+        $user->setId($id);
 
         // récupération du formulaire
         $form = $this->createForm(UserType::class, $user);
@@ -72,9 +71,8 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // TODO enregistrement de l'utilisateur via l'api + login
             $api->postUser($user);
-            return $this->redirectToRoute("user/form.html.twig", [
-                "form"=> $form,
-            ]);
+
+            return $this->redirectToRoute("app_google_connect_google");
         }
 
         return $this->render("user/form.html.twig", [

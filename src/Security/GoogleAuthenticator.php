@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Security\Core\Exception\UserNotFoundException;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport;
@@ -66,27 +67,22 @@ class GoogleAuthenticator extends OAuth2Authenticator
         $client = $this->clientRegistry->getClient('google');
         $accessToken = $this->fetchAccessToken($client);
 
+        /** @var GoogleUser $googleUser */
+        $googleUser = $client->fetchUserFromToken($accessToken);
+        $userArray = $googleUser->toArray();
+        $googleId = $userArray["sub"];
+
+        // have they logged in with Google before? Easy!
+        $existingUser = $this->api->getUser($googleId);
+        //User doesnt exist, we create it !
+        if (!$existingUser instanceof User) {
+            $exception = new UserNotFoundException();
+            $exception->setUserIdentifier($googleId);
+            throw $exception;
+        }
+
         return new SelfValidatingPassport(
-            new UserBadge($accessToken->getToken(), function () use ($accessToken, $client) {
-                /** @var GoogleUser $googleUser */
-                $googleUser = $client->fetchUserFromToken($accessToken);
-                $userArray = $googleUser->toArray();
-                $googleId = $userArray["sub"];
-                $email = $googleUser->getEmail();
-                $lastname = $googleUser->getLastName();
-                $firstname = $googleUser->getFirstName();
-
-                // have they logged in with Google before? Easy!
-                $existingUser = $this->api->getUser($googleId);
-
-                //User doesnt exist, we create it !
-               if (!$existingUser instanceof User) {
-                    $existingUser = new User();
-                    $existingUser->setEmail($email);
-                    $existingUser->setId($googleId);
-                    $existingUser->setFirstname($firstname);
-                    $existingUser->setLastname($lastname);
-                }
+            new UserBadge($accessToken->getToken(), function () use ($existingUser, $accessToken, $client) {
 
                 return $existingUser;
             })
@@ -114,9 +110,12 @@ class GoogleAuthenticator extends OAuth2Authenticator
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
-        $message = strtr($exception->getMessageKey(), $exception->getMessageData());
-
-        return new Response($message, Response::HTTP_FORBIDDEN);
+        $userIdentifier = $exception->getPrevious()->getUserIdentifier();
+        return new RedirectResponse(
+            $this->router->generate('app_user_adduser', [
+                "id" => $userIdentifier,
+            ])
+        );
     }
 
 //    public function start(Request $request, AuthenticationException $authException = null): Response

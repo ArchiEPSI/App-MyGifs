@@ -7,7 +7,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dad9ec00-8650-47d3-bc72-9a09b5968d05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GoogleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GoogleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/GoogleAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/GoogleAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,6 +250,7 @@
       <workItem from="1652985524165" duration="2466000" />
       <workItem from="1652989147888" duration="7107000" />
       <workItem from="1652997060391" duration="5778000" />
+      <workItem from="1653075540718" duration="9445000" />
     </task>
     <servers />
   </component>
