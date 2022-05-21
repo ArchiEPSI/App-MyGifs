@@ -12,7 +12,6 @@ body.modal {
 }
 .logo-menu img {
     width: 50px;
-    color: rgb(4, 17, 29);
 }
 
 div.content{
@@ -44,7 +43,10 @@ div.part-left {
     align-items: center;
 }
 
-div.part-left h1 { margin-left: 20px; }
+div.part-left h1 {
+    margin-left: 20px;     
+    color: rgb(4, 17, 29);
+}
 
 div.part-right {
     display: flex;

@@ -15,6 +15,7 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
+    .autoProvidejQuery()
     /*
      * ENTRY CONFIG
      *

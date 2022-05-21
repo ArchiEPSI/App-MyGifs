@@ -3,7 +3,11 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Gif;
+use App\Enum\GifStateEnum;
+use App\Services\CallCategoryApi;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -17,6 +21,19 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class GifType extends AbstractType
 {
+    /**
+     * @var CallCategoryApi
+     */
+    private CallCategoryApi $api;
+
+    /**
+     * GifType constructor.
+     * @param CallCategoryApi $api
+     */
+    public function __construct(CallCategoryApi $api)
+    {
+        $this->api =$api;
+    }
 
     /**
      * @param FormBuilderInterface $builder
@@ -43,24 +60,20 @@ class GifType extends AbstractType
                     "placeholder" => "Prix",
                 ],
             ])
-            ->add("state", TextType::class, [
+            ->add("state", ChoiceType::class, [
                 "label" => false,
+                "choices" => GifStateEnum::STATE_LIST,
                 "attr" => [
                     "placeholder" => "Etat",
                 ],
             ])
             ->add("categories", ChoiceType::class, [
                 "label" => false,
-                'choices' => [
-                    'Apple' => 1,
-                    'Banana' => 2,
-                    'Durian' => 3,
-                ],
-                'choice_attr' => [
-                    'Apple' => ['data-color' => 'Red'],
-                    'Banana' => ['data-color' => 'Yellow'],
-                    'Durian' => ['data-color' => 'Green'],
-                ],
+                "multiple" => true,
+                'choices' => $this->api->getCategories(),
+                "choice_label" => function(Category $category) {
+                    return $category->getLabel();
+                }
             ])
             ;
     }

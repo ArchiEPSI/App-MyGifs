@@ -46,7 +46,7 @@ class CallCategoryApi
     {
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $response = $this->client->request("GET", "http://172.23.0.5:80/api/categories/".$id)->getContent();
+            $response = $this->client->request("GET", "http://172.23.0.4:80/api/categories/".$id)->getContent();
             //$response = json_decode($response);
             // récupération de l'adresse
             $category = $this->serializer->deserialize($response, "App\Entity\Category", "json");
@@ -67,13 +67,14 @@ class CallCategoryApi
         // envoie de la requête pour récupérer l'utilisateur
         try {
             $response = $this->client->request("GET", "http://172.23.0.4:80/api/categories")->getContent();
-            $gifsJson = json_encode($response);
-            foreach ($gifsJson as $item) {
+            $gifsJson = json_decode($response, true);
+            foreach ($gifsJson["hydra:member"] as $item) {
+                $item = json_encode($item);
                 $category = $this->serializer->deserialize($item, "App\Entity\Category", "json");
                 $categories->add($category);
             }
         } catch (ClientExceptionInterface $e) {
-            throw new \Exception("Impossible de récupérer cet utilisateur");
+            return $categories;
         }
 
         return $categories;

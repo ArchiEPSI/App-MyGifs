@@ -19,6 +19,6 @@ class GifStateEnum
     const STATE_LIST = [
         "SELL" => self::SELL,
         "SELLED" => self::SELLED,
-        "WAITING" => self::WAITING,
+        "WAIT" => self::WAITING,
     ];
 }

@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block attributes %}{{ stimulus_controller("gif") }}{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' %}
+{% endblock %}
+
 {% block body %}
     {% form_theme form with [
         'address/form.html.twig'
@@ -33,11 +39,11 @@
                 <div class="two fields">
                     <div class="field">
                         <label>Affecter un état</label>
-                        {{ form_widget(form.state) }}
+                        {{ form_widget(form.state, {'attr': {'class': 'ui fluid  dropdown'}}) }}
                     </div>
                     <div class="field">
                         <label>Catégories</label>
-                        {{ form_widget(form.categories, {'attr': {'class': 'ui dropdown'}}) }}
+                        {{ form_widget(form.categories, {'attr': {'class': 'ui fluid multiple search selection dropdown', "data-gif-target": "dropdown"}}) }}
                     </div>
                 </div>
             </div>

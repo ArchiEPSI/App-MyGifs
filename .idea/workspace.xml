@@ -7,10 +7,14 @@
   <component name="ChangeListManager">
     <list default="true" id="dad9ec00-8650-47d3-bc72-9a09b5968d05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GoogleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GoogleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/GoogleAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/GoogleAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enum/GifStateEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/GifStateEnum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/GifType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/GifType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/CallCategoryApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallCategoryApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gif/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gif/form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +254,7 @@
       <workItem from="1652985524165" duration="2466000" />
       <workItem from="1652989147888" duration="7107000" />
       <workItem from="1652997060391" duration="5778000" />
-      <workItem from="1653075540718" duration="9445000" />
+      <workItem from="1653075540718" duration="18969000" />
     </task>
     <servers />
   </component>
