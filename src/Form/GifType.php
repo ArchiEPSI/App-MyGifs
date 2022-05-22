@@ -54,6 +54,13 @@ class GifType extends AbstractType
                     "placeholder" => "URL",
                 ],
             ])
+            ->add("description", TextType::class, [
+                "label" => false,
+                "attr" => [
+                    "placeholder" => "URL",
+                    "maxlength"=> 100,
+                ],
+            ])
             ->add("certificate", TextType::class, [
                 "label" => false,
             ])

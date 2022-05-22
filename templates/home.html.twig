@@ -1,9 +1,11 @@
 {%  extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="filter">
-        <a href="{{ path('app_gif_addgif') }}" class="ui button">Vendre un gif</a>
+    <div class="container">
+        <div class="filter">
+        </div>
+        {% include 'gif/list.html.twig' with { 'gifs' : gifs } %}
     </div>
-    {% include 'gif/list.html.twig' with { 'gifs' : gifs } %}
+
 {% endblock %}
 

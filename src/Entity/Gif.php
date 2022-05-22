@@ -6,6 +6,7 @@ namespace App\Entity;
 
 
 
+use App\Enum\GifStateEnum;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,9 +32,9 @@ class Gif
     private string $url;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $description;
+    private ?string $description = "";
 
     /**
      * @var User
@@ -53,7 +54,7 @@ class Gif
     /**
      * @var string
      */
-    private string $state;
+    private string $state = GifStateEnum::SELL;
 
     /**
      * @var ArrayCollection|array
@@ -165,17 +166,17 @@ class Gif
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param string|null $description
      */
-    public function setDescription(string $description): void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }

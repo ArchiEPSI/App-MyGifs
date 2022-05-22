@@ -46,11 +46,11 @@
                 <div class="two fields">
                     <div class="field">
                         <label>Affecter un état</label>
-                        {{ form_widget(form.state, {'attr': {'class': 'ui fluid  dropdown'}}) }}
+                        {{ form_widget(form.state, {'attr': {'class': 'ui fluid  dropdown', "data-dropdown-target": "dropdown"}}) }}
                     </div>
                     <div class="field">
                         <label>Visibilité sur le market</label>
-                        {{ form_widget(form.visible, {'attr': {'class': 'ui fluid  dropdown'}}) }}
+                        {{ form_widget(form.visible, {'attr': {'class': 'ui fluid  dropdown', "data-dropdown-target": "dropdown"}}) }}
                     </div>
                 </div>
             </div>

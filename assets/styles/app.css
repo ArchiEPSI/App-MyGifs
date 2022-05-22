@@ -66,3 +66,11 @@ div.part-right {
     display: flex;
     align-items: center
 }
+
+div.container {
+    width: 1700px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,34 @@
+div.filter {
+    margin-bottom: 30px;
+}
+
+div.card div.content.sub-content {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 15px;
+    height: 181px !important;
+}
+
+div.card div.labels {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.ui.card .image {
+    height: 238px;
+}
+
+div.card .description {
+    height: 60px;
+}
+
+div.bot-content {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+div.price {
+    font-size: 1.7em;
+}

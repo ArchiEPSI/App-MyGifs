@@ -2,16 +2,17 @@ import {Controller} from "@hotwired/stimulus";
 
 export default class extends Controller {
 
-    static targets = ["dropdown"];
+    static targets = ["card"];
 
     connect() {
         // récupération des éléments jquery
         this._element = $(this.element);
-        this._dropdown = $(this.dropdownTarget);
+        this._card = $(this.cardTargets);
 
-        // initialisation des dropdown
-        this._dropdown.dropdown({
-
-        });
+        this._card.each(function () {
+            $(this).dimmer({
+                on: 'hover'
+            });
+        })
     }
 }

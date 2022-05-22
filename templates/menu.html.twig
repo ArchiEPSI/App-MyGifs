@@ -15,6 +15,7 @@
             <div class="ui dropdown item" {{ stimulus_controller("dropdown") }}{{ stimulus_target("dropdown", "dropdown") }}>
                 <i class="user circle outline big icon"></i>
                 <div class="menu">
+                    <a href="{{ path('app_gif_addgif') }}" class="Ajouter mon gif">Vendre un gif</a>
                     {% if is_granted('ROLE_USER') %}
                         <a href="{{ path('app_login_logout') }}" title="Mon compte" class="item">
                             <i class="user circle outline icon"></i>

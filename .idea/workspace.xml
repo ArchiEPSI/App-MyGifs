@@ -7,12 +7,15 @@
   <component name="ChangeListManager">
     <list default="true" id="dad9ec00-8650-47d3-bc72-9a09b5968d05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GifController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GifController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CallGifApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallGifApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CallUserApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallUserApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/gif_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/gif_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/gif.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/gif.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Gif.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Gif.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/GifType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/GifType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gif/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gif/form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/gif/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gif/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,6 +259,7 @@
       <workItem from="1652997060391" duration="5778000" />
       <workItem from="1653075540718" duration="23051000" />
       <workItem from="1653146065941" duration="29091000" />
+      <workItem from="1653229027756" duration="9515000" />
     </task>
     <servers />
   </component>

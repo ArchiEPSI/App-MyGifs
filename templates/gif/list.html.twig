@@ -1,17 +1,42 @@
-<div class="list-gifs">
+<div class="list-gifs ui five column centered grid" {{ stimulus_controller("gif") }}>
     {% for gif in gifs %}
-        <div class="card">
-            <div class="gif">
-                <img src="{{ gif.url }}">
-            </div>
-            <div class="informations">
-                {{ gif.name }}
-                {{ gif.price }}
-                {% for category in gif.categories %}
-                    <div class="ui label">{{ category.label }}</div>
-                {% endfor %}
-                {{ gif.owner.username }}
+        <div class="column">
+            <div class="ui fluid card">
+                <div class="ui top attached {% if gif.state == 'A vendre'%}green {% elseif gif.state == 'Vendu'%}orange{% endif %} label">
+                    {{ gif.state }}
+                </div>
+                <div class="blurring dimmable image" {{ stimulus_target("gif", "card") }}>
+                    <div class="ui dimmer">
+                        <div class="content">
+                            <div class="center">
+                                <a href="#" class="ui teal button">Acheter</a>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ gif.url }}">
+                </div>
+                <div class="content sub-content">
+                    <div class="header">{{ gif.name }}</div>
+                    <div class="meta">
+                        <span class="date">Propriétaire: {{ gif.owner.username }}</span>
+                        <div class="labels">
+                            {% for category in gif.categories %}
+                                <div class="ui teal label">{{ category.label }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="description">
+                        {{ gif.description }}
+                    </div>
+                </div>
+                <div class="bot-content">
+                    <div class="price">
+                        {{ gif.price }}
+                        <i class="euro sign icon"></i>
+                    </div>
+                </div>
             </div>
         </div>
+
     {% endfor %}
 </div>
