@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+
+
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Gif
@@ -54,9 +56,11 @@ class Gif
     private string $state;
 
     /**
-     * @var Collection
+     * @var ArrayCollection|array
+     *
+     * @ORM\ManyToMany(targetEntity="Category", cascade={"persist"})
      */
-    private Collection $categories;
+    private ArrayCollection|array $categories;
 
     /**
      * @var string
@@ -73,7 +77,7 @@ class Gif
      */
     public function __construct()
     {
-        $this->createdAt = new \DateTime;
+        $this->categories = new ArrayCollection();
     }
 
     /**
@@ -85,19 +89,19 @@ class Gif
     }
 
     /**
-     * @return Collection
+     * @return array
      */
-    public function getCategories(): Collection
+    public function getCategories(): array
     {
-        return $this->categories;
+        return $this->categories->toArray();
     }
 
     /**
-     * @param Collection $categories
+     * @param array $categories
      */
-    public function setCategories(Collection $categories): void
+    public function setCategories(array $categories): void
     {
-        $this->categories = $categories;
+        $this->categories = new ArrayCollection($categories);
     }
 
     /**
@@ -114,14 +118,10 @@ class Gif
 
     /**
      * @param Category $category
-     *
-     * @return $this
      */
-    public function removeCategory(Category $category): Gif
+    public function removeCategory(Category $category): void
     {
         $this->categories->remove($category);
-
-        return $this;
     }
 
     /**

@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Services\CallUserApi;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,8 +50,12 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route ("/edit/{id}",
-     *     requirements={"id": "\d+"})
+     * @Route (
+     *     "/edit/{id}",
+     *     requirements={"id": "\d+"}
+     *     )
+     *
+     * @IsGranted("ROLE_USER")
      *
      * @param Request     $request
      * @param CallUserApi $api

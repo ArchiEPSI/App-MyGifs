@@ -20,6 +20,12 @@ class Category
      */
     private $label;
 
+
+    public function __toString(): string
+    {
+        return  $this->label;
+    }
+
     /**
      * @return int
      */

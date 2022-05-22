@@ -110,12 +110,20 @@ class GoogleAuthenticator extends OAuth2Authenticator
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
-        $userIdentifier = $exception->getPrevious()->getUserIdentifier();
-        return new RedirectResponse(
-            $this->router->generate('app_user_adduser', [
-                "id" => $userIdentifier,
-            ])
-        );
+        if ($exception->getPrevious() instanceof UserNotFoundException) {
+            /** @var UserNotFoundException $userIdentifier */
+            $userIdentifier = $exception->getPrevious()->getUserIdentifier();
+            return new RedirectResponse(
+                $this->router->generate('app_user_adduser', [
+                    "id" => $userIdentifier,
+                ])
+            );
+        } else {
+            return new RedirectResponse(
+                $this->router->generate('app_login_logout'
+                )
+            );
+        }
     }
 
 //    public function start(Request $request, AuthenticationException $authException = null): Response

@@ -5,14 +5,33 @@
             <a href="{{ path("app_index_index") }}"><h1>MyGifs</h1></a>
         </div>
         <div class="part-right">
-            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-                <a href="#">Mes gifs</a>
-                <a href="#"><i class="shopping basket icon"></i>Mon panier</a>
-                <a href="#" title="Mon compte"><i class="user circle outline big icon"></i></a>
-                <a href="{{ path('app_login_logout') }}" title="Me déconnecter"><i class="sign out alternate big icon"></i></a>
-            {% else %}
-                <a href="{{ path('connect_google') }}" title="Me connecter"><i class="user circle outline big icon"></i></a>
+            {% if is_granted('ROLE_USER') %}
+                <a href="#"><span>Mes gifs</span></a>
+                <a href="#">
+                    <i class=" shopping basket big icon"></i>
+                    <span>Mon panier</span>
+                </a>
             {% endif %}
+            <div class="ui dropdown item" {{ stimulus_controller("dropdown") }}{{ stimulus_target("dropdown", "dropdown") }}>
+                <i class="user circle outline big icon"></i>
+                <div class="menu">
+                    {% if is_granted('ROLE_USER') %}
+                        <a href="{{ path('app_login_logout') }}" title="Mon compte" class="item">
+                            <i class="user circle outline icon"></i>
+                            Mon compte
+                        </a>
+                        <a href="{{ path('app_login_logout') }}" title="Me déconnecter" class="item">
+                            <i class="sign out alternate icon"></i>
+                            Me déconnecter
+                        </a>
+                    {% else %}
+                        <a href="{{ path('connect_google') }}" title="Me connecter" class="item">
+                            <i class="sign out alternate icon"></i>
+                            Me connecter
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 </div>

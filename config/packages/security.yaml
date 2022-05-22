@@ -19,6 +19,9 @@ security:
                 path: app_login_logout
             custom_authenticators:
                 - App\Security\GoogleAuthenticator
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 2592000
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

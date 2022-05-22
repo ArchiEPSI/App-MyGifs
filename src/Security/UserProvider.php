@@ -58,6 +58,9 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
      *
      * If your firewall is "stateless: true" (for a pure API), this
      * method is not called.
+     * @param UserInterface $user
+     * @return UserInterface
+     * @throws \Exception
      */
     public function refreshUser(UserInterface $user): UserInterface
     {

@@ -59,19 +59,20 @@ class CallCategoryApi
     }
 
     /**
-     * @return ArrayCollection
+     * @return array
      */
-    public function getCategories(): ArrayCollection
+    public function getCategories(): array
     {
-        $categories = new ArrayCollection();
+        $categories = [];
         // envoie de la requête pour récupérer l'utilisateur
         try {
             $response = $this->client->request("GET", "http://172.23.0.4:80/api/categories")->getContent();
             $gifsJson = json_decode($response, true);
             foreach ($gifsJson["hydra:member"] as $item) {
                 $item = json_encode($item);
+                /** @var Category $category */
                 $category = $this->serializer->deserialize($item, "App\Entity\Category", "json");
-                $categories->add($category);
+                $categories[$category->getLabel()] = ($category);
             }
         } catch (ClientExceptionInterface $e) {
             return $categories;

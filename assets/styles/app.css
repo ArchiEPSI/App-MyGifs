@@ -25,6 +25,7 @@ div.content{
 div.menu {
     box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
     width: 100%;
+    color: rgb(4, 17, 29);
 }
 
 div.menu-content {
@@ -35,7 +36,20 @@ div.menu-content {
 }
 
 div.menu a {
-    color: #555C68 !important;
+    margin-right: 20px;
+    color: rgb(4, 17, 29);
+}
+
+div.menu.left.transition {
+    margin-top: 14px;
+}
+
+div.menu.left.transition a {
+    margin-right: revert !important;
+}
+
+div.menu a span {
+    font-size: 1.2em;
 }
 
 div.part-left {
@@ -44,7 +58,7 @@ div.part-left {
 }
 
 div.part-left h1 {
-    margin-left: 20px;     
+    margin-left: 20px;
     color: rgb(4, 17, 29);
 }
 

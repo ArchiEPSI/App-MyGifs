@@ -54,6 +54,16 @@ class GifType extends AbstractType
                     "placeholder" => "URL",
                 ],
             ])
+            ->add("certificate", TextType::class, [
+                "label" => false,
+            ])
+            ->add("visible", ChoiceType::class, [
+                "label" => false,
+                "choices" => [
+                    "Visible" => true,
+                    "Non visible" => false,
+                ],
+            ])
             ->add("price", NumberType::class, [
                 "label" => false,
                 "attr" => [
@@ -68,12 +78,9 @@ class GifType extends AbstractType
                 ],
             ])
             ->add("categories", ChoiceType::class, [
-                "label" => false,
+                "placeholder" => "Catégories",
                 "multiple" => true,
                 'choices' => $this->api->getCategories(),
-                "choice_label" => function(Category $category) {
-                    return $category->getLabel();
-                }
             ])
             ;
     }
