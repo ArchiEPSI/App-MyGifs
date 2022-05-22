@@ -32,7 +32,6 @@ class GifController extends AbstractController
      */
     public function addGif(Request $request, CallUserApi $userApi, CallGifApi $gifApi): Response
     {
-        if ($this->isGranted('ROLE_USER')) {
             $gif = new Gif();
             // récupération du formulaire
             $form = $this->createForm(GifType::class, $gif);
@@ -50,10 +49,11 @@ class GifController extends AbstractController
                         "errorMessage" => "Une erreur est survenue: Impossible d'enregistrer le gif"
                     ]);
                 }
+                return $this->redirectToRoute("app_index_index");
             }
-        }
-
-        return $this->redirectToRoute("app_index_index");
+            return $this->render("gif/form.html.twig", [
+                "form" => $form->createView(),
+            ]);
     }
 
     /**

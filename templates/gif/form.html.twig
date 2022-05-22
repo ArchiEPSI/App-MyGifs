@@ -31,6 +31,10 @@
                 {{ form_widget(form.name) }}
             </div>
             <div class="field">
+                <label>Ajouter une courte description</label>
+                {{ form_widget(form.description) }}
+            </div>
+            <div class="field">
                 <label>Entrez une url</label>
                 {{ form_widget(form.url) }}
             </div>
@@ -45,18 +49,14 @@
             <div class=" field">
                 <div class="two fields">
                     <div class="field">
-                        <label>Affecter un état</label>
-                        {{ form_widget(form.state, {'attr': {'class': 'ui fluid  dropdown', "data-dropdown-target": "dropdown"}}) }}
+                        <label>Catégories</label>
+                        {{ form_widget(form.categories, {'attr': {'class': 'ui fluid multiple search selection dropdown', "data-dropdown-target": "dropdown"}}) }}
                     </div>
                     <div class="field">
                         <label>Visibilité sur le market</label>
                         {{ form_widget(form.visible, {'attr': {'class': 'ui fluid  dropdown', "data-dropdown-target": "dropdown"}}) }}
                     </div>
                 </div>
-            </div>
-            <div class="field">
-                <label>Catégories</label>
-                {{ form_widget(form.categories, {'attr': {'class': 'ui fluid multiple search selection dropdown', "data-dropdown-target": "dropdown"}}) }}
             </div>
             <button class="ui fluid green button" type="submit">Ajouter ce gif</button>
             {{ form_end(form) }}

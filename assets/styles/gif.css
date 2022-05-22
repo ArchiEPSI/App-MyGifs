@@ -19,6 +19,10 @@ div.ui.card .image {
     height: 238px;
 }
 
+div.ui.card .image img{
+    max-height: 100% !important;
+}
+
 div.card .description {
     height: 60px;
 }

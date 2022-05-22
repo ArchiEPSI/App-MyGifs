@@ -5,17 +5,18 @@
             <a href="{{ path("app_index_index") }}"><h1>MyGifs</h1></a>
         </div>
         <div class="part-right">
+            <a href="{{ path('app_gif_addgif') }}" class="Ajouter mon gif">
+                <span>Vendre un gif</span>
+            </a>
             {% if is_granted('ROLE_USER') %}
                 <a href="#"><span>Mes gifs</span></a>
-                <a href="#">
-                    <i class=" shopping basket big icon"></i>
+                <a {{ stimulus_action("basket", "show", "click") }}>
                     <span>Mon panier</span>
                 </a>
             {% endif %}
             <div class="ui dropdown item" {{ stimulus_controller("dropdown") }}{{ stimulus_target("dropdown", "dropdown") }}>
                 <i class="user circle outline big icon"></i>
                 <div class="menu">
-                    <a href="{{ path('app_gif_addgif') }}" class="Ajouter mon gif">Vendre un gif</a>
                     {% if is_granted('ROLE_USER') %}
                         <a href="{{ path('app_login_logout') }}" title="Mon compte" class="item">
                             <i class="user circle outline icon"></i>

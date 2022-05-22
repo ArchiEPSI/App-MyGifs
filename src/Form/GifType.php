@@ -3,11 +3,8 @@
 
 namespace App\Form;
 
-use App\Entity\Category;
 use App\Entity\Gif;
-use App\Enum\GifStateEnum;
 use App\Services\CallCategoryApi;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -57,7 +54,7 @@ class GifType extends AbstractType
             ->add("description", TextType::class, [
                 "label" => false,
                 "attr" => [
-                    "placeholder" => "URL",
+                    "placeholder" => "Description",
                     "maxlength"=> 100,
                 ],
             ])
@@ -73,15 +70,9 @@ class GifType extends AbstractType
             ])
             ->add("price", NumberType::class, [
                 "label" => false,
+                "html5" => true,
                 "attr" => [
                     "placeholder" => "Prix",
-                ],
-            ])
-            ->add("state", ChoiceType::class, [
-                "label" => false,
-                "choices" => GifStateEnum::STATE_LIST,
-                "attr" => [
-                    "placeholder" => "Etat",
                 ],
             ])
             ->add("categories", ChoiceType::class, [

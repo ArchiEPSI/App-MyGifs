@@ -1,11 +1,13 @@
 {%  extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container" {{ stimulus_controller("basket") }}>
         <div class="filter">
         </div>
         {% include 'gif/list.html.twig' with { 'gifs' : gifs } %}
     </div>
+
+    {% include 'basket/modal.html.twig' %}
 
 {% endblock %}
 

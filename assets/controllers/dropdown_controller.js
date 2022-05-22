@@ -7,11 +7,13 @@ export default class extends Controller {
     connect() {
         // récupération des éléments jquery
         this._element = $(this.element);
-        this._dropdown = $(this.dropdownTarget);
+        this._dropdown = $(this.dropdownTargets);
 
         // initialisation des dropdown
-        this._dropdown.dropdown({
-            type: 'menu',
+        this._dropdown.each(function() {
+            $(this).dropdown({
+                type: 'menu',
+            });
         });
     }
 }
