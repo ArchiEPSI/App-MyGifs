@@ -51,10 +51,7 @@ class GifController extends AbstractController
                     ]);
                 }
             }
-            return $this->render("gif/form.html.twig", [
-                "form" => $form->createView(),
-            ]);
-        };
+        }
 
         return $this->redirectToRoute("app_index_index");
     }

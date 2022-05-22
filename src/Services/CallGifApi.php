@@ -49,7 +49,7 @@ class CallGifApi
     {
         $gifs = new ArrayCollection();
 
-        // envoie de la requête pour récupérer l'utilisateur
+        // envoie de la requête pour récupérer les gifs
         try {
             $response = $this->client->request("GET", self::URI)->getContent();
             $response = json_decode($response, true);
@@ -73,7 +73,7 @@ class CallGifApi
      */
     public function getGif(int $id): Gif
     {
-        // envoie de la requête pour récupérer l'utilisateur
+        // envoie de la requête pour récupérer le gif
         try {
             $response = $this->client->request("GET", self::URI."/".$id)->getContent();
             //$response = json_decode($response);
@@ -109,7 +109,7 @@ class CallGifApi
      */
     public function postGif(Gif $gif)
     {
-        // sérialisation du l'utilisateur
+        // sérialisation du gif
         $content = $this->serializer->serialize($gif, "json");
         // modification des données
         $content = json_decode($content, true);

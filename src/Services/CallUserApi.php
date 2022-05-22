@@ -60,7 +60,7 @@ class CallUserApi
     /**
      * @param User $user
      */
-    public function postUser(User $user): void
+    public function editUser(User $user): void
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($user, "json");

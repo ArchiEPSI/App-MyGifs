@@ -8,6 +8,7 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 import './styles/user/form.css';
+import './styles/gif.css';
 import '../node_modules/fomantic-ui/dist/semantic.css';
 
 // start the Stimulus application

@@ -8,7 +8,7 @@
                 {{ gif.name }}
                 {{ gif.price }}
                 {% for category in gif.categories %}
-                    {{ category.label }}
+                    <div class="ui label">{{ category.label }}</div>
                 {% endfor %}
                 {{ gif.owner.username }}
             </div>

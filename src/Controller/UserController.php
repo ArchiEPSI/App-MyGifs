@@ -49,6 +49,8 @@ class UserController extends AbstractController
         ]);
     }
 
+
+
     /**
      * @Route (
      *     "/edit/{id}",
@@ -68,21 +70,43 @@ class UserController extends AbstractController
     public function editUser(Request $request, CallUserApi $api, string $id): Response
     {
         $user = $api->getUser($id);
-        // TODO récupération de l'utilisateur via l'api
         // récupération du formulaire
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // TODO enregistrement de l'utilisateur via l'api + login
-            $api->postUser($user);
-
+            $api->editUser($user);
             return $this->redirectToRoute("app_google_connect_google");
         }
 
         return $this->render("user/form.html.twig", [
             "form" => $form->createView(),
             "errors" => true,
+        ]);
+    }
+
+    /**
+     * @Route (
+     *     "/detail/{id}",
+     *     requirements={"id": "\d+"}
+     *     )
+     *
+     * @IsGranted("ROLE_USER")
+     *
+     * @param Request     $request
+     * @param CallUserApi $api
+     * @param string         $id
+     *
+     * @return Response
+     *
+     * @throws \Exception
+     */
+    public function detailUser(Request $request, CallUserApi $api, string $id): Response
+    {
+        $user = $api->getUser($id);
+
+        return $this->render("user/detail.html.twig", [
+            "user" => $user,
         ]);
     }
 }
