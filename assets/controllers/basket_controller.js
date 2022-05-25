@@ -32,6 +32,7 @@ export default class extends Controller {
     add(event) {
         let btn = $(event.target);
         let url = event.params.url;
+        console.log(url, btn);
         btn.addClass("loading disabled");
         // requête ajax
         $.ajax({
@@ -43,10 +44,9 @@ export default class extends Controller {
             error: function (error) {
 
             },
-        });
+        }).bind(this);
         btn.removeClass("loading disabled");
     }
-
      delete(event) {
 
      }

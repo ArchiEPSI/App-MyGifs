@@ -6,26 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dad9ec00-8650-47d3-bc72-9a09b5968d05" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/CommandController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/basket/_modal.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/controllers/basket_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/basket_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers/dropdown_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/dropdown_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers/gif_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers/gif_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/controllers/hello_controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BasketController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Command.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CallCategoryApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallCategoryApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CallCommandApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallCommandApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CallGifApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallGifApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CallUserApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CallUserApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/basket/modal.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enum/CommandTypeEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/CommandEnum.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/gif/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gif/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +254,7 @@
       <workItem from="1653075540718" duration="23051000" />
       <workItem from="1653146065941" duration="29091000" />
       <workItem from="1653229027756" duration="12881000" />
-      <workItem from="1653502995236" duration="10304000" />
+      <workItem from="1653502995236" duration="13737000" />
     </task>
     <servers />
   </component>
@@ -299,11 +283,11 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="753" y="225" key="#com.intellij.ide.util.MemberChooser/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1653514295774" />
-    <state x="617" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1653506045658">
+    <state x="617" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1653515204594">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="617" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1653506045658" />
-    <state x="617" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1652189748436" />
+    <state x="617" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.588.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1653515204594" />
     <state x="690" y="271" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1652735941661">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
