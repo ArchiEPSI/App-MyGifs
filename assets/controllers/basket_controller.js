@@ -1,13 +1,15 @@
 import {Controller} from "@hotwired/stimulus";
 
+/* stimulusFetch: 'lazy' */
 export default class extends Controller {
 
-    static targets = ["modal"];
+    static targets = ["modal", "content"];
 
     connect() {
         // récupération des éléments jquery
         this._element = $(this.element);
-        this._modal = $(this.modal);
+        this._modal = $(this.modalTarget);
+        this._content = $(this.contentTarget);
 
         console.log(this._modal);
         this._modal.modal({
@@ -19,8 +21,30 @@ export default class extends Controller {
         this._modal.modal("show");
     }
 
-    add(event) {
+    close() {
+        this._modal.modal("hide");
+    }
 
+    getBasket() {
+        this._content.addClass("loading");
+    }
+
+    add(event) {
+        let btn = $(event.target);
+        let url = event.params.url;
+        btn.addClass("loading disabled");
+        // requête ajax
+        $.ajax({
+            url: url,
+            method: "POST",
+            success: function(data) {
+                // modification du compteur du panier
+            },
+            error: function (error) {
+
+            },
+        });
+        btn.removeClass("loading disabled");
     }
 
      delete(event) {

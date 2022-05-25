@@ -51,6 +51,11 @@ class Command
     private $type;
 
     /**
+     * @var User
+     */
+    private $user;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -184,5 +189,21 @@ class Command
     public function setType(string $type): void
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
     }
 }

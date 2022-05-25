@@ -9,6 +9,7 @@
 import './styles/app.css';
 import './styles/user/form.css';
 import './styles/gif.css';
+import './styles/basket.css';
 import '../node_modules/fomantic-ui/dist/semantic.css';
 
 // start the Stimulus application

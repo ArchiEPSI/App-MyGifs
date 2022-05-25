@@ -46,7 +46,7 @@ class CallUserApi
     {
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $response = $this->client->request("GET", "http://172.23.0.4:80/api/users/".$id)->getContent();
+            $response = $this->client->request("GET", "http://172.23.0.5:80/api/users/".$id)->getContent();
             //$response = json_decode($response);
             // récupération de l'adresse
             $user = $this->serializer->deserialize($response, "App\Entity\User", "json");
@@ -64,7 +64,7 @@ class CallUserApi
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($user, "json");
-        $response = $this->client->request("PUT", "http://172.23.0.4:80/api/users/".$user->getId(),
+        $response = $this->client->request("PUT", "http://172.23.0.5:80/api/users/".$user->getId(),
             [
                 'headers' => [
                     'Content-Type' => 'application/json; charset=utf-8',
@@ -81,7 +81,7 @@ class CallUserApi
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($user, "json");
-        $response = $this->client->request("POST", "http://172.23.0.4:80/api/users",
+        $response = $this->client->request("POST", "http://172.23.0.5:80/api/users",
             [
                 'headers' => [
                     'Content-Type' => 'application/json',

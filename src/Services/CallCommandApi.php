@@ -57,6 +57,24 @@ class CallCommandApi
 
         return $command;
     }
+    /**
+     * @return Command
+     */
+    public function getBasket(): Command
+    {
+        // envoie de la requête pour récupérer l'utilisateur
+        try {
+            $response = $this->client->request("GET", "http://172.23.0.5:80/api/commands/")->getContent();
+            //$response = json_decode($response);
+            // récupération de l'adresse
+            $command = $this->serializer->deserialize($response, "App\Entity\Command", "json");
+
+        } catch (ClientExceptionInterface $e) {
+            throw new \Exception("Impossible de récupérer cet utilisateur");
+        }
+
+        return $command;
+    }
 
     /**
      * @return ArrayCollection

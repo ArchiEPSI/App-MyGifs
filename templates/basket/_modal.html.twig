@@ -1,0 +1,13 @@
+<div class="ui modal basket"{{ stimulus_target("basket", "modal") }}>
+    <div class="header">
+        <img src="{{ asset('images/logo.png') }}">
+        <h2>
+            Mon panier
+        </h2>
+    </div>
+    <div class="content" {{ stimulus_target("basket", "content") }}></div>
+    <div class="actions">
+        <a href="{{ path('app_command_valid') }}" class="ui green button">Valider mon panier</a>
+        <div class="ui cancel button" {{ stimulus_action('basket', 'close', 'click') }}>Retour</div>
+    </div>
+</div>

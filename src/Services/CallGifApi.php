@@ -25,7 +25,7 @@ class CallGifApi
     private HttpClientInterface $client;
     private Serializer $serializer;
 
-    const URI = "http://172.23.0.4:80/api/gifs";
+    const URI = "http://172.23.0.5:80/api/gifs";
     const URI_USER = "/api/users/";
     const URI_CATEGORY = "/api/categories/";
 
@@ -120,7 +120,7 @@ class CallGifApi
         foreach ($gif->getCategories() as $index =>$category) {
             $content["categories"][$index] = self::URI_CATEGORY.$category->getId();
         }
-        $response = $this->client->request("POST", "http://172.23.0.4:80/api/gifs",
+        $response = $this->client->request("POST", "http://172.23.0.5:80/api/gifs",
             [
                 'headers' => [
                     'Content-Type' => 'application/json; charset=utf-8',

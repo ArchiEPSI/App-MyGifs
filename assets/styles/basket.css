@@ -1,0 +1,25 @@
+div.ui.modal.basket {
+    min-height: 70%;
+    width: 480px;
+}
+
+div.ui.modal.basket div.header{
+    display: flex;
+    align-items: center;
+}
+
+div.ui.modal.basket h2{
+    margin-top: 0 !important;
+    margin-left: 20px;
+}
+
+div.ui.modal.basket img{
+    width: 40px;
+}
+
+div.ui.modal.basket div.actions{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
