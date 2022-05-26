@@ -1,5 +1,10 @@
-<div class="gifs">
-    {% for gif in command.gifs %}
-        <div></div>
-    {% endfor %}
+{% for gif in command.gifs %}
+    <div class="item-gif">
+        <img src="{{ gif.url }}">
+        <div class="name">{{ gif.name }}</div>
+        <div class="price">{{ gif.price }}</div>
+        <div class="ui icon button delete"><i class="times icon"></i></div>
+    </div>
+{% endfor %}
+<div class="total">Total: {{ command.ttc }}<i class="euro sign icon"></i>
 </div>

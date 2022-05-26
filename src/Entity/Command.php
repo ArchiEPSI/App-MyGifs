@@ -28,7 +28,7 @@ class Command
     /**
      * @var float
      */
-    private $includingTaxes;
+    private $ttc;
 
     /**
      * @var \DateTime
@@ -114,17 +114,17 @@ class Command
     /**
      * @return float
      */
-    public function getIncludingTaxes(): float
+    public function getTtc(): float
     {
-        return $this->includingTaxes;
+        return $this->ttc;
     }
 
     /**
-     * @param float $includingTaxes
+     * @param float $ttc
      */
-    public function setIncludingTaxes(float $includingTaxes): void
+    public function setTtc(float $ttc): void
     {
-        $this->includingTaxes = $includingTaxes;
+        $this->ttc = $ttc;
     }
 
     /**

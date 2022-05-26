@@ -24,6 +24,8 @@ class CallGifApi
 {
     private HttpClientInterface $client;
     private Serializer $serializer;
+    private $platformApiUrl;
+
 
     const URI = "http://172.23.0.5:80/api/gifs";
     const URI_USER = "/api/users/";
@@ -33,9 +35,10 @@ class CallGifApi
      * CallGifApi constructor.
      * @param HttpClientInterface $client
      */
-    public function __construct(HttpClientInterface $client)
+    public function __construct(HttpClientInterface $client, string $platformApiUrl)
     {
         $this->client = $client;
+        $this->platformApiUrl = $platformApiUrl;
         $encoders = array(new JsonEncoder());
         $normalizer = new ObjectNormalizer(null, null, null, new ReflectionExtractor());
 
@@ -51,7 +54,7 @@ class CallGifApi
 
         // envoie de la requête pour récupérer les gifs
         try {
-            $response = $this->client->request("GET", self::URI)->getContent();
+            $response = $this->client->request("GET", $this->platformApiUrl."/api/gifs")->getContent();
             $response = json_decode($response, true);
             foreach ($response["hydra:member"] as $item) {
                 $item = json_encode($item);
@@ -75,10 +78,10 @@ class CallGifApi
     {
         // envoie de la requête pour récupérer le gif
         try {
-            $response = $this->client->request("GET", self::URI."/".$id)->getContent();
+            $response = $this->client->request("GET", $this->platformApiUrl."/api/gifs/".$id)->getContent();
             //$response = json_decode($response);
             // récupération de l'adresse
-            $gif = $this->serializer->deserialize($response, "App\Entity\gif", "json");
+            $gif = $this->serializer->deserialize($response, "App\Entity\Gif", "json");
 
         } catch (ClientExceptionInterface $e) {
             throw new \Exception("Impossible de récupérer cet utilisateur");
@@ -94,7 +97,7 @@ class CallGifApi
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($gif, "json");
-        $response = $this->client->request("PUT", self::URI."/".$gif->getId(),
+        $response = $this->client->request("PUT", $this->platformApiUrl."/api/gifs/".$gif->getId(),
             [
                 'headers' => [
                     'Content-Type' => 'application/json; charset=utf-8',
@@ -120,7 +123,7 @@ class CallGifApi
         foreach ($gif->getCategories() as $index =>$category) {
             $content["categories"][$index] = self::URI_CATEGORY.$category->getId();
         }
-        $response = $this->client->request("POST", "http://172.23.0.5:80/api/gifs",
+        $response = $this->client->request("POST", $this->platformApiUrl."/api/gifs",
             [
                 'headers' => [
                     'Content-Type' => 'application/json; charset=utf-8',

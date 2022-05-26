@@ -11,6 +11,7 @@ import './styles/user/form.css';
 import './styles/gif.css';
 import './styles/basket.css';
 import '../node_modules/fomantic-ui/dist/semantic.css';
+import 'simple-notify/dist/simple-notify.min.css';
 
 // start the Stimulus application
 import './bootstrap';

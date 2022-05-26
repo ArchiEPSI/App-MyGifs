@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Entity\Gif;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -18,15 +19,13 @@ class Calculs
      */
     public function getTotal(ArrayCollection $gifs): float
     {
+        $total = 0;
 
+        /** @var Gif $gif */
+        foreach ($gifs as $gif) {
+            $total = $total + $gif->getPrice();
+        }
+
+        return $total;
     }
-
-    /**
-     * @return float
-     */
-    public function getTtc(): float
-    {
-
-    }
-
 }

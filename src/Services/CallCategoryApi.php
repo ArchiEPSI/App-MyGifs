@@ -23,14 +23,17 @@ class CallCategoryApi
 {
     private $client;
     private $serializer;
+    private $platformApiUrl;
+
 
     /**
      * CallCategoryApi constructor.
      * @param HttpClientInterface $client
      */
-    public function __construct(HttpClientInterface $client)
+    public function __construct(HttpClientInterface $client, string $platformApiUrl)
     {
         $this->client = $client;
+        $this->platformApiUrl = $platformApiUrl;
         $encoders = array(new JsonEncoder());
         $normalizer = new ObjectNormalizer(null, null, null, new ReflectionExtractor());
 
@@ -46,7 +49,7 @@ class CallCategoryApi
     {
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $response = $this->client->request("GET", "http://172.23.0.5:80/api/categories/".$id)->getContent();
+            $response = $this->client->request("GET", $this->platformApiUrl."/api/categories/".$id)->getContent();
             //$response = json_decode($response);
             // récupération de l'adresse
             $category = $this->serializer->deserialize($response, "App\Entity\Category", "json");
@@ -66,7 +69,7 @@ class CallCategoryApi
         $categories = [];
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $response = $this->client->request("GET", "http://172.23.0.5:80/api/categories")->getContent();
+            $response = $this->client->request("GET", $this->platformApiUrl."/api/categories")->getContent();
             $gifsJson = json_decode($response, true);
             foreach ($gifsJson["hydra:member"] as $item) {
                 $item = json_encode($item);
@@ -88,7 +91,7 @@ class CallCategoryApi
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($category, "json");
-        $response = $this->client->request("PUT", "http://172.23.0.5:80/api/categories/".$category->getId(),
+        $response = $this->client->request("PUT", $this->platformApiUrl."/api/categories/".$category->getId(),
             [
                 'headers' => [
                     'Content-Type' => 'application/json; charset=utf-8',
@@ -105,7 +108,7 @@ class CallCategoryApi
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($category, "json");
-        $response = $this->client->request("POST", "http://172.23.0.5:80/api/categories",
+        $response = $this->client->request("POST", $this->platformApiUrl."/api/categories",
             [
                 'headers' => [
                     'Content-Type' => 'application/json',

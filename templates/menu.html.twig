@@ -10,8 +10,12 @@
             </a>
             {% if is_granted('ROLE_USER') %}
                 <a href="#"><span>Mes gifs</span></a>
-                <a {{ stimulus_action("basket", "show", "click") }}>
+                <a {{ stimulus_action("basket", "show", "click") }}
+                        data-basket-url-param="{{ path('app_command_getcart') }}"
+                        class="item">
                     <span>Mon panier</span>
+                    {%  set cart = app.session.get('cart') %}
+                    <div class="right circular floating ui orange label" {{ stimulus_target('basket', 'indicator') }}>{% if cart is defined and cart|length > 0%}{{ cart|length }}{% endif %}</div>
                 </a>
             {% endif %}
             <div class="ui dropdown item"{{ stimulus_target("dropdown", "dropdown") }}>

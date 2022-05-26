@@ -23,14 +23,17 @@ class CallCommandApi
 {
     private $client;
     private $serializer;
+    private $platformApiUrl;
 
     /**
      * CallCommandApi constructor.
      * @param HttpClientInterface $client
+     * @param string $platformApiUrl
      */
-    public function __construct(HttpClientInterface $client)
+    public function __construct(HttpClientInterface $client, string $platformApiUrl)
     {
         $this->client = $client;
+        $this->platformApiUrl = $platformApiUrl;
         $encoders = array(new JsonEncoder());
         $normalizer = new ObjectNormalizer(null, null, null, new ReflectionExtractor());
 
@@ -46,7 +49,7 @@ class CallCommandApi
     {
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $response = $this->client->request("GET", "http://172.23.0.5:80/api/categories/".$id)->getContent();
+            $response = $this->client->request("GET", $this->platformApiUrl."/api/categories/".$id)->getContent();
             //$response = json_decode($response);
             // récupération de l'adresse
             $command = $this->serializer->deserialize($response, "App\Entity\Command", "json");
@@ -60,11 +63,11 @@ class CallCommandApi
     /**
      * @return Command
      */
-    public function getBasket(): Command
+    public function getCart(): Command
     {
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $response = $this->client->request("GET", "http://172.23.0.5:80/api/commands/")->getContent();
+            $response = $this->client->request("GET", $this->platformApiUrl."/api/commands/")->getContent();
             //$response = json_decode($response);
             // récupération de l'adresse
             $command = $this->serializer->deserialize($response, "App\Entity\Command", "json");
@@ -84,7 +87,7 @@ class CallCommandApi
         $commands = new ArrayCollection();
         // envoie de la requête pour récupérer l'utilisateur
         try {
-            $items = $this->client->request("GET", "http://172.23.0.5:80/api/categories")->getContent();
+            $items = $this->client->request("GET", $this->platformApiUrl."/api/categories")->getContent();
             //$response = json_decode($response);
             foreach ($items as $item) {
                 $command = $this->serializer->deserialize($item, "App\Entity\Command", "json");
@@ -104,7 +107,7 @@ class CallCommandApi
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($command, "json");
-        $response = $this->client->request("PUT", "http://172.23.0.5:80/api/categories/".$command->getId(),
+        $response = $this->client->request("PUT", $this->platformApiUrl."/api/categories/".$command->getId(),
             [
                 'headers' => [
                     'Content-Type' => 'application/json; charset=utf-8',
@@ -121,7 +124,7 @@ class CallCommandApi
     {
         // sérialisation du l'utilisateur
         $content = $this->serializer->serialize($command, "json");
-        $response = $this->client->request("POST", "http://172.23.0.5:80/api/categories",
+        $response = $this->client->request("POST", $this->platformApiUrl."/api/categories",
             [
                 'headers' => [
                     'Content-Type' => 'application/json',

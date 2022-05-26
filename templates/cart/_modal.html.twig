@@ -7,7 +7,7 @@
     </div>
     <div class="content" {{ stimulus_target("basket", "content") }}></div>
     <div class="actions">
-        <a href="{{ path('app_command_valid') }}" class="ui green button">Valider mon panier</a>
+        <a href="{{ path('app_command_valid') }}" class="ui green button">Valider et payer</a>
         <div class="ui cancel button" {{ stimulus_action('basket', 'close', 'click') }}>Retour</div>
     </div>
 </div>

@@ -37,8 +37,9 @@ div.menu-content {
 
 div.menu a {
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 30px;
     color: rgb(4, 17, 29);
+    position: relative;
 }
 
 div.menu.left.transition {
@@ -70,8 +71,9 @@ div.part-right {
 
 div.container {
     width: 1700px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 70px;
-    margin-bottom: 30px;
+    margin: 70px auto 30px;
+}
+
+div.menu a div.floating.label {
+    top: -1.7em;
 }
