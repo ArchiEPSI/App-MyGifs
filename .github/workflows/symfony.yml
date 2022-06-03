@@ -38,5 +38,5 @@ jobs:
         touch data/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
+        DATABASE_URL: mysql://ui75z9z6kqf474bz:T0HGqdoJiUoLIlvYsXrQ@b4kpha6bzmyilgq8ox1h-mysql.services.clever-cloud.com:3306/b4kpha6bzmyilgq8ox1h
       run: vendor/bin/phpunit
