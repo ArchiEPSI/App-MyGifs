@@ -38,5 +38,5 @@ jobs:
           touch data/database.sqlite
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
-          DATABASE_URL: mysql://mygif-bdd:nawJif-bazdi9-dutwuk@151.159.113.24:39709/default_database?serverVersion=5.7
+          DATABASE_URL: mysql://mygif-bdd:nawJif-bazdi9-dutwuk@151.159.113.24:39709
         run: vendor/bin/phpunit
