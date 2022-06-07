@@ -1,5 +1,12 @@
 name: Symfony
 
+env:
+  NAME : ${{ secrets.BDD_NAME }}
+  HOST: ${{ secrets.BDD_HOST }}
+  PORT: ${{ secrets.BDD_PORT }}
+  PWD: ${{ secrets.BDD_PWD }}
+  DATABASE: ${{ secrets.BDD_DATABASE }}
+
 on:
   push:
     branches: [ master ]
@@ -38,5 +45,5 @@ jobs:
           touch data/database.sqlite
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
-          DATABASE_URL: mysql://${{ secrets.BDD_NAME }}:${{ secrets.BDD_PWD }}@${{ secrets.BDD_HOST }}:${{ secrets.BDD_PORT }}
+          DATABASE_URL: mysql://NAME:PWD@HOST:PORT/DATABASE
         run: vendor/bin/phpunit
