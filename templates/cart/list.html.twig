@@ -1,10 +1,42 @@
-{% for gif in command.gifs %}
-    <div class="item-gif">
-        <img src="{{ gif.url }}">
-        <div class="name">{{ gif.name }}</div>
-        <div class="price">{{ gif.price }}</div>
-        <div class="ui icon button delete"><i class="times icon"></i></div>
+<table class="ui very basic table">
+    <thead>
+        <tr>
+            <th class="three wide">Gif</th>
+            <th class="seven wide">Nom</th>
+            <th class="four wide">Prix</th>
+            <th class="two wide"></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for gif in command.gifs %}
+        <tr>
+            <td>
+                <img src="{{ gif.url }}">
+            </td>
+            <td>{{ gif.name }}</td>
+            <td>
+                {{ gif.price }}
+                <i class="euro sign icon"></i>
+            </td>
+            <td>
+                <div class="ui icon button delete"
+                     title="Supprimer ce gif du panier"
+                     data-basket-url-param="{{ path('app_command_removegif', {'id': gif.id}) }}"
+                    {{ stimulus_action('basket', 'delete', 'click') }}>
+                    <i class="times icon"></i>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<div class="total">
+    <div>
+        <h2>Total</h2>
     </div>
-{% endfor %}
-<div class="total">Total: {{ command.ttc }}<i class="euro sign icon"></i>
+    <div>
+        <h2>{{ command.ttc }}<i class="euro sign icon"></i></h2>
+    </div>
 </div>

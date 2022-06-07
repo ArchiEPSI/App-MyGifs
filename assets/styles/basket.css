@@ -1,6 +1,7 @@
 div.ui.modal.basket {
     min-height: 70%;
     width: 480px;
+    position: relative;
 }
 
 div.ui.modal.basket div.header{
@@ -13,6 +14,11 @@ div.ui.modal.basket h2{
     margin-left: 20px;
 }
 
+div.ui.modal.basket div.content{
+   height: revert !important;
+    padding-bottom: 110px !important;
+}
+
 div.ui.modal.basket img{
     width: 40px;
 }
@@ -23,8 +29,18 @@ div.ui.modal.basket div.actions{
     width: 100%;
 }
 
-div.ui.modal.basket div.item-gif {
-    display: flex;
-    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+div.ui.modal.basket div.table {
+    width: 100%;
+    padding: 10px;
+}
 
+div.ui.modal.basket div.total {
+    position: absolute;
+    width: 100%;
+    bottom: 60px;
+    padding: 20px;
+    display: flex;
+    left: 0;
+    justify-content: space-between;
+    background-color: #ffffff;
 }

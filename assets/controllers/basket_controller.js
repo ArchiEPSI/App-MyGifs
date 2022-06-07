@@ -4,7 +4,7 @@ import Notify  from "simple-notify";
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
 
-    static targets = ["modal", "content", "indicator"];
+    static targets = ["modal", "content", "indicator", "validBtn"];
 
     connect() {
         // récupération des éléments jquery
@@ -12,14 +12,15 @@ export default class extends Controller {
         this._modal = $(this.modalTarget);
         this._content = $(this.contentTarget);
         this._indicator = $(this.indicatorTarget);
+        this._validBtn = $(this.ValidBtnTarget);
 
-        console.log(this._modal);
         this._modal.modal({
             closable: true,
         });
     }
 
     show(event) {
+        this._content.html("");
         this._modal.modal("show");
         this.getCart(event);
     }
@@ -54,7 +55,7 @@ export default class extends Controller {
                         position: 'right bottom',
                         effect: 'slide',
                         autoclose: true,
-                        autotimeout: 3000
+                        autotimeout: 5000
                     });
                 } else {
                     new Notify({
@@ -63,7 +64,7 @@ export default class extends Controller {
                         position: 'right bottom',
                         effect: 'slide',
                         autoclose: true,
-                        autotimeout: 3000
+                        autotimeout: 5000
                     });
                 }
             }.bind(this),
@@ -95,7 +96,7 @@ export default class extends Controller {
                     position: 'right bottom',
                     effect: 'slide',
                     autoclose: true,
-                    autotimeout: 3000
+                    autotimeout: 5000
                 });
                 console.error(error);
             }.bind(this),
@@ -104,6 +105,50 @@ export default class extends Controller {
     }
 
      delete(event) {
-
+        let btn = $(event.target);
+        let url = event.params.url;
+        btn.addClass("loading disabled");
+        $.ajax({
+            url: url,
+            method: "POST",
+            success: function (data) {
+                btn.removeClass("loading disabled");
+                // suppression de la ligne
+                let row = btn.parent().parent();
+                // mise à jour du nombre d'éléments dans le panier
+                this._indicator.html(data.nb);
+                // si un contenu est indiqué
+                if (data.html) {
+                    // remplace le contenu
+                    this._content.html(data.html);
+                } else {
+                    // sinon supprime la ligne
+                    row.remove();
+                }
+                // notification du succes
+                new Notify({
+                    status: 'success',
+                    title: 'Gif supprimé du panier',
+                    position: 'right bottom',
+                    effect: 'slide',
+                    autoclose: true,
+                    autotimeout: 5000
+                });
+            }.bind(this),
+            error: function (error) {
+                btn.removeClass("loading disabled");
+                // notification de l'erreur
+                new Notify({
+                    status: 'error',
+                    title: 'Oups une erreur est survenue',
+                    text: 'Impossible de supprimer le gif du panier',
+                    position: 'right bottom',
+                    effect: 'slide',
+                    autoclose: true,
+                    autotimeout: 5000
+                });
+                console.error(error);
+            }.bind(this)
+        })
      }
 }

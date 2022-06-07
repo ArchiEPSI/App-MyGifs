@@ -15,10 +15,10 @@
                         class="item">
                     <span>Mon panier</span>
                     {%  set cart = app.session.get('cart') %}
-                    <div class="right circular floating ui orange label" {{ stimulus_target('basket', 'indicator') }}>{% if cart is defined and cart|length > 0%}{{ cart|length }}{% endif %}</div>
+                    <div class="right circular floating ui orange label" {{ stimulus_target('basket', 'indicator') }}>{% if cart is defined and cart|length > 0%}{{ cart|length }}{% else %}0{% endif %}</div>
                 </a>
             {% endif %}
-            <div class="ui dropdown item"{{ stimulus_target("dropdown", "dropdown") }}>
+            <div class="ui dropdown item"{{ stimulus_target("dropdown", "dropdownMenu") }}>
                 <i class="user circle outline big icon"></i>
                 <div class="menu">
                     {% if is_granted('ROLE_USER') %}

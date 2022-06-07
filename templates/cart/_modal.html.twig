@@ -5,9 +5,9 @@
             Mon panier
         </h2>
     </div>
-    <div class="content" {{ stimulus_target("basket", "content") }}></div>
+    <div class=" scrolling content" {{ stimulus_target("basket", "content") }}></div>
     <div class="actions">
-        <a href="{{ path('app_command_valid') }}" class="ui green button">Valider et payer</a>
+        <a href="{{ path('app_command_valid') }}" class="ui green button" {{ stimulus_target('basket', 'validBtn') }}>Valider et payer</a>
         <div class="ui cancel button" {{ stimulus_action('basket', 'close', 'click') }}>Retour</div>
     </div>
 </div>

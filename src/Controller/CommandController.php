@@ -30,7 +30,7 @@ class CommandController extends AbstractController
         // récupération du panier et de l'utilisateur
 
         // calculs
-        return $this->redirectToRoute("app_command_getcart");
+        return $this->redirectToRoute("app_command_removegif", ["id" => 1]);
     }
 
     /**
@@ -112,23 +112,35 @@ class CommandController extends AbstractController
     /**
      * @Route ("/remove/{id}", requirements={"id" : "\d+"})
      *
-     * @param Request $request
      * @param SessionInterface $session
-     * @param int $idGif
+     * @param int              $id
      *
      * @return Response
      */
-    public function removeGif(Request $request, SessionInterface $session, int $idGif): Response
+    public function removeGif(SessionInterface $session, int $id): Response
     {
         // récupération du panier en session
         $cart = $session->get("cart", []);
         // suppression de l'élément dans le panier
-        $key = array_search($idGif, $cart);
-        unset($cart, $key);
+       $cart = array_filter($cart, function ($value) use ($id) {
+            return $value != $id;
+       });
 
         $session->set("cart", $cart);
 
-        return new JsonResponse([]);
+        // si le panier n'est pas vide
+        if (count($cart) > 0) {
+
+            return new JsonResponse([
+                "nb" => count($cart),
+            ]);
+        }
+        $hml = $this->renderView('cart/empty.html.twig');
+
+        return new JsonResponse([
+            "html" => $hml,
+            "nb" => count($cart),
+        ]);
     }
 
     /**
