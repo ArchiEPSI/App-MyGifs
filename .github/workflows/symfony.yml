@@ -6,6 +6,10 @@ env:
   PORT: ${{ secrets.BDD_PORT }}
   PWD: ${{ secrets.BDD_PWD }}
   DATABASE: ${{ secrets.BDD_DATABASE }}
+  SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
+  SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
+  SCW_ORGANIZATION_ID: ${{ secrets.SCW_ORGANIZATION_ID }}
+  SCW_ZONE: fr-par-1
 
 on:
   push:
@@ -43,7 +47,9 @@ jobs:
         run: |
           mkdir -p data
           touch data/database.sqlite
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
-        env:
-          DATABASE_URL: mysql://NAME:PWD@HOST:PORT/DATABASE
-        run: vendor/bin/phpunit
+      - name: Get instance id and expose it in INSTANCE_ID env var
+        run: echo ::set-env name=INSTANCE_ID::$(cat "${GITHUB_WORKSPACE}/scw.output" | jq -r '.id')
+      - name: Delete instance
+        uses: jawher/action-scw@v2.4.0
+        with:
+          args: instance server de lete server-id=${{ env.INSTANCE_ID }} with-ip=true force-shutdown=true
