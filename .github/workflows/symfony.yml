@@ -43,13 +43,3 @@ jobs:
             ${{ runner.os }}-php-
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Create Database
-        run: |
-          mkdir -p data
-          touch data/database.sqlite
-      - name: Get instance id and expose it in INSTANCE_ID env var
-        run: echo ::echo name=INSTANCE_ID::$(cat "${GITHUB_WORKSPACE}/scw.output" | jq -r '.id')
-      - name: Delete instance
-        uses: jawher/action-scw@v2.4.0 
-        with:
-          args: instance server de lete server-id=${{ env.INSTANCE_ID }} with-ip=true force-shutdown=true
